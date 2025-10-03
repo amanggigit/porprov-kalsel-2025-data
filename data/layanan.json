@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "name": "Layanan Medis Darurat",
+    "category": "Medis",
+    "description": "Layanan kesehatan 24 jam dengan 3 ambulans siaga, 8 dokter spesialis olahraga, perawat terlatih, dan peralatan medis lengkap termasuk defibrilator dan ventilator untuk menangani cedera atlet dan emergency medis.",
+    "location": "Posko Medis Utama - Stadion Demang Lehman",
+    "hours": "24 Jam",
+    "contact": "+62 812-1111-2222",
+    "status": "Aktif"
+  },
+  {
+    "id": 2,
+    "name": "Klinik Fisioterapi",
+    "category": "Medis",
+    "description": "Layanan fisioterapi dan rehabilitasi untuk atlet dengan 6 fisioterapis berlisensi, peralatan terapi modern, dan ruang recovery khusus.",
+    "location": "Klinik Olahraga - Aquatic Center Tapin",
+    "hours": "06:00 - 22:00",
+    "contact": "+62 813-1111-3333",
+    "status": "Aktif"
+  },
+  {
+    "id": 3,
+    "name": "Doping Control",
+    "category": "Medis",
+    "description": "Layanan tes doping sesuai standar WADA dengan petugas bersertifikat internasional dan laboratorium terakreditasi.",
+    "location": "Fasilitas Doping Control - GOR Tuntung Pandang",
+    "hours": "Sesuai Jadwal Pertandingan",
+    "contact": "+62 814-1111-4444",
+    "status": "Aktif"
+  },
+  {
+    "id": 4,
+    "name": "Shuttle Bus Atlet",
+    "category": "Transportasi",
+    "description": "Layanan transportasi khusus atlet dan official dengan 15 bus ber-AC dari hotel ke venue pertandingan. Jadwal reguler setiap 15 menit pada jam sibuk.",
+    "location": "Terminal Shuttle - Hotel Tapin Plaza",
+    "hours": "05:00 - 23:00",
+    "contact": "+62 813-2222-3333",
+    "status": "Aktif"
+  },
+  {
+    "id": 5,
+    "name": "Transportasi VIP",
+    "category": "Transportasi",
+    "description": "Layanan transportasi khusus untuk tamu VIP, official tingkat tinggi, dan delegasi dengan 8 kendaraan mewah dan driver berpengalaman.",
+    "location": "Pool VIP - Hotel Tapin Plaza",
+    "hours": "24 Jam",
+    "contact": "+62 814-2222-4444",
+    "status": "Aktif"
+  },
+  {
+    "id": 6,
+    "name": "Parkir Terpadu",
+    "category": "Transportasi",
+    "description": "Sistem parkir terpadu di semua venue dengan kapasitas 2000 mobil dan 5000 motor, dilengkapi sistem tiket elektronik dan petugas keamanan.",
+    "location": "Semua Venue Pertandingan",
+    "hours": "05:00 - 24:00",
+    "contact": "+62 815-2222-5555",
+    "status": "Aktif"
+  },
+  {
+    "id": 7,
+    "name": "Akomodasi Atlet",
+    "category": "Akomodasi",
+    "description": "Penginapan khusus atlet di 5 hotel berbintang dengan total 800 kamar, fasilitas gym, kolam renang, dan makanan bergizi seimbang.",
+    "location": "Hotel Tapin Plaza & Hotel Partner",
+    "hours": "24 Jam",
+    "contact": "+62 816-3333-6666",
+    "status": "Aktif"
+  },
+  {
+    "id": 8,
+    "name": "Guest House Official",
+    "category": "Akomodasi",
+    "description": "Penginapan untuk official dan wasit dengan 200 kamar standar internasional, meeting room, dan layanan concierge.",
+    "location": "Guest House KONI - Rantau",
+    "hours": "24 Jam",
+    "contact": "+62 817-3333-7777",
+    "status": "Aktif"
+  },
+  {
+    "id": 9,
+    "name": "Catering Atlet",
+    "category": "Konsumsi",
+    "description": "Penyediaan makanan bergizi seimbang untuk 2000 atlet dengan menu khusus diet olahraga, halal, vegetarian, dan menu khusus alergi. Dikelola chef berpengalaman.",
+    "location": "Dapur Utama - Kompleks Olahraga Tapin",
+    "hours": "04:00 - 22:00",
+    "contact": "+62 814-3333-4444",
+    "status": "Aktif"
+  },
+  {
+    "id": 10,
+    "name": "Food Court Penonton",
+    "category": "Konsumsi",
+    "description": "Area kuliner dengan 25 tenant makanan lokal dan nasional, food truck, dan minuman segar untuk penonton di semua venue.",
+    "location": "Semua Venue Utama",
+    "hours": "08:00 - 22:00",
+    "contact": "+62 818-3333-8888",
+    "status": "Aktif"
+  },
+  {
+    "id": 11,
+    "name": "Hydration Station",
+    "category": "Konsumsi",
+    "description": "Pos penyediaan air minum gratis dan minuman elektrolit untuk atlet dan official di semua venue dengan standar kesehatan tinggi.",
+    "location": "Semua Venue Pertandingan",
+    "hours": "06:00 - 22:00",
+    "contact": "+62 819-3333-9999",
+    "status": "Aktif"
+  },
+  {
+    "id": 12,
+    "name": "Security & Keamanan",
+    "category": "Keamanan",
+    "description": "Layanan keamanan terpadu dengan 200 petugas bersertifikat, 150 CCTV, metal detector, dan koordinasi dengan TNI-Polri untuk menjamin keamanan event.",
+    "location": "Pos Komando Keamanan - Semua Venue",
+    "hours": "24 Jam",
+    "contact": "+62 816-5555-6666",
+    "status": "Aktif"
+  },
+  {
+    "id": 13,
+    "name": "Lost & Found",
+    "category": "Keamanan",
+    "description": "Layanan barang hilang dengan sistem database terintegrasi dan petugas khusus di setiap venue untuk membantu pencarian barang hilang.",
+    "location": "Information Center - Setiap Venue",
+    "hours": "08:00 - 22:00",
+    "contact": "+62 820-5555-0000",
+    "status": "Aktif"
+  },
+  {
+    "id": 14,
+    "name": "Information Center",
+    "category": "Informasi",
+    "description": "Pusat informasi dengan petugas multilingual (Indonesia, Inggris, Banjar) untuk memberikan informasi jadwal, venue, transportasi, dan layanan lainnya.",
+    "location": "Lobby Utama - Setiap Venue",
+    "hours": "06:00 - 23:00",
+    "contact": "+62 821-4444-1111",
+    "status": "Aktif"
+  },
+  {
+    "id": 15,
+    "name": "WiFi Gratis",
+    "category": "Teknologi",
+    "description": "Layanan internet gratis berkecepatan tinggi di semua venue dengan bandwidth 1 Gbps dan coverage 100% area pertandingan.",
+    "location": "Semua Venue & Area Publik",
+    "hours": "24 Jam",
+    "contact": "+62 822-4444-2222",
+    "status": "Aktif"
+  },
+  {
+    "id": 16,
+    "name": "Live Streaming",
+    "category": "Teknologi",
+    "description": "Layanan siaran langsung pertandingan dengan 20 kamera profesional, drone, dan streaming ke platform digital dengan kualitas 4K.",
+    "location": "Studio Broadcast - Media Center",
+    "hours": "Sesuai Jadwal Pertandingan",
+    "contact": "+62 823-4444-3333",
+    "status": "Aktif"
+  },
+  {
+    "id": 17,
+    "name": "Media Center",
+    "category": "Media",
+    "description": "Pusat media dengan 100 workstation, ruang konferensi pers berkapasitas 200 orang, studio TV, editing room, dan fasilitas transmisi satelit.",
+    "location": "Gedung Media Center - Stadion Demang Lehman",
+    "hours": "05:00 - 24:00",
+    "contact": "+62 815-4444-5555",
+    "status": "Aktif"
+  },
+  {
+    "id": 18,
+    "name": "Akreditasi Media",
+    "category": "Media",
+    "description": "Layanan akreditasi untuk 300 wartawan dan photographer dengan sistem online, ID card khusus, dan akses area restricted.",
+    "location": "Media Accreditation Center",
+    "hours": "08:00 - 17:00",
+    "contact": "+62 824-4444-4444",
+    "status": "Aktif"
+  },
+  {
+    "id": 19,
+    "name": "Timing & Scoring",
+    "category": "Teknis",
+    "description": "Sistem pencatatan waktu dan skor elektronik untuk semua cabang olahraga dengan teknologi terkini dan backup system untuk memastikan akurasi hasil.",
+    "location": "Control Room - Setiap Venue",
+    "hours": "Sesuai Jadwal Pertandingan",
+    "contact": "+62 825-6666-5555",
+    "status": "Aktif"
+  },
+  {
+    "id": 20,
+    "name": "Sound System",
+    "category": "Teknis",
+    "description": "Sistem audio profesional di semua venue dengan announcer berpengalaman, musik latar, dan pengeras suara berkualitas tinggi.",
+    "location": "Audio Control - Setiap Venue",
+    "hours": "06:00 - 23:00",
+    "contact": "+62 826-6666-6666",
+    "status": "Aktif"
+  },
+  {
+    "id": 21,
+    "name": "Protokol & Upacara",
+    "category": "Protokol",
+    "description": "Layanan protokol untuk upacara pembukaan, penutupan, dan penyerahan medali dengan tim protokol berpengalaman dan peralatan upacara lengkap.",
+    "location": "Sekretariat Protokol - Stadion Demang Lehman",
+    "hours": "08:00 - 22:00",
+    "contact": "+62 827-7777-7777",
+    "status": "Aktif"
+  },
+  {
+    "id": 22,
+    "name": "Merchandise Official",
+    "category": "Komersial",
+    "description": "Penjualan merchandise resmi PORPROV Kalsel 2025 termasuk kaos, topi, gantungan kunci, dan souvenir khas Kalimantan Selatan.",
+    "location": "Merchandise Store - Setiap Venue",
+    "hours": "08:00 - 21:00",
+    "contact": "+62 828-8888-8888",
+    "status": "Aktif"
+  },
+  {
+    "id": 23,
+    "name": "Layanan Disabilitas",
+    "category": "Aksesibilitas",
+    "description": "Fasilitas khusus untuk penyandang disabilitas termasuk kursi roda, jalur khusus, toilet accessible, dan pendamping khusus.",
+    "location": "Semua Venue Pertandingan",
+    "hours": "06:00 - 22:00",
+    "contact": "+62 829-9999-9999",
+    "status": "Aktif"
+  },
+  {
+    "id": 24,
+    "name": "Childcare Center",
+    "category": "Layanan Khusus",
+    "description": "Tempat penitipan anak sementara untuk atlet dan official yang membawa keluarga, dengan pengasuh berpengalaman dan fasilitas bermain.",
+    "location": "Family Center - Hotel Tapin Plaza",
+    "hours": "07:00 - 21:00",
+    "contact": "+62 830-0000-0000",
+    "status": "Aktif"
+  }
+]
