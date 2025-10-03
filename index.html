@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORPROV Kalsel 2025 - Pekan Olahraga Provinsi Kalimantan Selatan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #00204A 0%, #1e3a8a 100%);
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #F8B400 0%, #fbbf24 100%);
+        }
+        
+        .tab-active {
+            background: #F8B400;
+            color: #00204A;
+        }
+        
+        .podium-animation {
+            animation: podiumRise 1s ease-out;
+        }
+        
+        @keyframes podiumRise {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .countdown-digit {
+            background: linear-gradient(135deg, #F8B400 0%, #fbbf24 100%);
+            color: #00204A;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 1rem;
+            min-width: 80px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(248, 180, 0, 0.3);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sport-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .sport-card:hover {
+            border-color: #F8B400;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(248, 180, 0, 0.2);
+        }
+        
+        .news-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #F8B400;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .floating-element {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .live-indicator {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .live-indicator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .weather-widget {
+            background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center floating-element">
+                        <span class="text-2xl font-bold text-blue-900">🏆</span>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold">PORPROV KALSEL 2025</h1>
+                        <p class="text-blue-200">Website Internal Kontingen KONI TAPIN</p>
+                        <div class="flex items-center space-x-2 mt-1">
+                            <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold pulse-animation">LIVE</span>
+                            <span class="text-blue-200 text-sm">Sedang Berlangsung</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-lg font-semibold">Oktober - November 2025</p>
+                    <p class="text-blue-200">Pelaihari - Tanah Laut</p>
+                    <div class="weather-widget mt-2 p-2 rounded-lg text-center">
+                        <div class="text-sm">🌤️ 28°C | Cerah</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center space-x-2 py-4">
+                <button onclick="showTab('beranda')" class="tab-btn px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-blue-900 tab-active relative" id="tab-beranda">
+                    Beranda
+                    <span class="notification-badge">3</span>
+                </button>
+                <button onclick="showTab('venue')" class="tab-btn px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-blue-900 bg-gray-100 text-gray-700" id="tab-venue">
+                    Venue & Cabor
+                </button>
+                <button onclick="showTab('jadwal')" class="tab-btn px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-blue-900 bg-gray-100 text-gray-700" id="tab-jadwal">
+                    Jadwal
+                </button>
+                <button onclick="showTab('berita')" class="tab-btn px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-blue-900 bg-gray-100 text-gray-700 relative" id="tab-berita">
+                    Berita
+                    <span class="notification-badge">5</span>
+                </button>
+                <button onclick="showTab('statistik')" class="tab-btn px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-blue-900 bg-gray-100 text-gray-700" id="tab-statistik">
+                    Statistik
+                </button>
+                <button onclick="showTab('official')" class="tab-btn px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-blue-900 bg-gray-100 text-gray-700" id="tab-official">
+                    Official
+                </button>
+                <button onclick="showTab('layanan')" class="tab-btn px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-blue-900 bg-gray-100 text-gray-700" id="tab-layanan">
+                    Layanan
+                </button>
+                <button onclick="showTab('klasemen')" class="tab-btn px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-blue-900 bg-gray-100 text-gray-700" id="tab-klasemen">
+                    Klasemen Medali
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Beranda Tab -->
+        <div id="content-beranda" class="tab-content">
+            <!-- Breaking News Banner -->
+            <section class="mb-8">
+                <div class="bg-red-600 text-white p-4 rounded-lg live-indicator">
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-white text-red-600 px-2 py-1 rounded font-bold text-sm">BREAKING</span>
+                        <span class="font-semibold">Kabupaten Tapin Raih Medali Emas ke-19 dari Cabor Sepak Bola!</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Stats -->
+            <section class="mb-12">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="stats-card rounded-lg p-6 text-center hover-scale">
+                        <div class="text-3xl font-bold text-blue-900">69</div>
+                        <div class="text-gray-600 text-sm">Cabang Olahraga</div>
+                    </div>
+                    <div class="stats-card rounded-lg p-6 text-center hover-scale">
+                        <div class="text-3xl font-bold text-green-600">13</div>
+                        <div class="text-gray-600 text-sm">Kabupaten/Kota</div>
+                    </div>
+                    <div class="stats-card rounded-lg p-6 text-center hover-scale">
+                        <div class="text-3xl font-bold text-yellow-600">245</div>
+                        <div class="text-gray-600 text-sm">Medali Diperebutkan</div>
+                    </div>
+                    <div class="stats-card rounded-lg p-6 text-center hover-scale">
+                        <div class="text-3xl font-bold text-purple-600">1,250</div>
+                        <div class="text-gray-600 text-sm">Atlet Berpartisipasi</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Countdown Timer -->
+            <section class="mb-12">
+                <div class="gradient-bg rounded-2xl p-8 text-white text-center">
+                    <h2 class="text-3xl font-bold mb-6">Countdown Pembukaan PORPROV Kalsel 2025</h2>
+                    <div class="flex justify-center space-x-4 flex-wrap gap-4">
+                        <div class="countdown-digit">
+                            <div class="text-3xl font-bold" id="days">15</div>
+                            <div class="text-sm">Hari</div>
+                        </div>
+                        <div class="countdown-digit">
+                            <div class="text-3xl font-bold" id="hours">8</div>
+                            <div class="text-sm">Jam</div>
+                        </div>
+                        <div class="countdown-digit">
+                            <div class="text-3xl font-bold" id="minutes">42</div>
+                            <div class="text-sm">Menit</div>
+                        </div>
+                        <div class="countdown-digit">
+                            <div class="text-3xl font-bold" id="seconds">18</div>
+                            <div class="text-sm">Detik</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Klasemen 3 Besar -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Klasemen 3 Besar Sementara</h2>
+                <div class="flex justify-center items-end space-x-4 podium-animation">
+                    <!-- Peringkat 2 -->
+                    <div class="text-center">
+                        <div class="bg-gray-300 rounded-lg p-6 mb-4 hover-scale">
+                            <div class="text-4xl mb-2">🥈</div>
+                            <h3 class="font-bold text-lg">Kab. Banjar</h3>
+                            <p class="text-2xl font-bold text-gray-600">48 Medali</p>
+                            <div class="text-sm text-gray-500 mt-1">↑ +3 hari ini</div>
+                        </div>
+                        <div class="bg-gray-400 h-24 w-32 rounded-t-lg"></div>
+                    </div>
+                    
+                    <!-- Peringkat 1 -->
+                    <div class="text-center">
+                        <div class="gold-gradient rounded-lg p-6 mb-4 hover-scale text-blue-900">
+                            <div class="text-4xl mb-2">🥇</div>
+                            <h3 class="font-bold text-lg">Kab. Tapin</h3>
+                            <p class="text-2xl font-bold">58 Medali</p>
+                            <div class="text-sm mt-1">↑ +6 hari ini</div>
+                        </div>
+                        <div class="bg-yellow-400 h-32 w-32 rounded-t-lg"></div>
+                    </div>
+                    
+                    <!-- Peringkat 3 -->
+                    <div class="text-center">
+                        <div class="bg-orange-300 rounded-lg p-6 mb-4 hover-scale">
+                            <div class="text-4xl mb-2">🥉</div>
+                            <h3 class="font-bold text-lg">Kota Banjarmasin</h3>
+                            <p class="text-2xl font-bold text-orange-800">42 Medali</p>
+                            <div class="text-sm text-orange-600 mt-1">↑ +4 hari ini</div>
+                        </div>
+                        <div class="bg-orange-400 h-20 w-32 rounded-t-lg"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Events -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Pertandingan Hari ini</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-red-500">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold live-indicator">🔴 LIVE</span>
+                            <span class="text-gray-500">Set 2 - 15:12</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Bulu Tangkis Final</h3>
+                        <p class="text-gray-600 mb-2">GOR Tuntung Pandang</p>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">Tapin</span>
+                                <span class="text-2xl font-bold text-green-600">2</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">Banjar</span>
+                                <span class="text-2xl font-bold">1</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-green-500">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">🟢 Berlangsung</span>
+                            <span class="text-gray-500">Babak 2 - 78'</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Sepak Bola Putra</h3>
+                        <p class="text-gray-600 mb-2">Lapangan Sepak Bola Karang Taruna</p>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">Tapin</span>
+                                <span class="text-2xl font-bold text-green-600">3</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">HSS</span>
+                                <span class="text-2xl font-bold">1</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-blue-500">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">⏰ Akan Dimulai</span>
+                            <span class="text-gray-500">14:30</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Renang Final</h3>
+                        <p class="text-gray-600 mb-2">Kolam Renang Tirta Kencana</p>
+                        <p class="text-sm text-blue-600">Gaya Bebas 100m Putra</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pertandingan Esok -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Pertandingan Esok</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-purple-500">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">📅 Besok</span>
+                            <span class="text-gray-500">09:00</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Atletik Final</h3>
+                        <p class="text-gray-600 mb-2">Stadion Pertasi Kencana</p>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <p class="text-sm text-purple-600 font-semibold">Lari 100m Putra Final</p>
+                            <p class="text-xs text-gray-500 mt-1">8 atlet terbaik bertanding</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-orange-500">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">📅 Besok</span>
+                            <span class="text-gray-500">10:30</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Tenis Meja</h3>
+                        <p class="text-gray-600 mb-2">Lapangan Tenis Indoor Pemuda</p>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">Tapin</span>
+                                <span class="text-sm text-gray-500">vs</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">Banjarmasin</span>
+                                <span class="text-xs text-orange-600">Semifinal</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-teal-500">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-semibold">📅 Besok</span>
+                            <span class="text-gray-500">14:00</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Angkat Berat</h3>
+                        <p class="text-gray-600 mb-2">Gedung Serba Guna RTH Kijang Mas</p>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <p class="text-sm text-teal-600 font-semibold">Kelas 73kg Putra</p>
+                            <p class="text-xs text-gray-500 mt-1">Kompetisi Clean & Jerk</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-pink-500">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-semibold">📅 Besok</span>
+                            <span class="text-gray-500">15:30</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Pencak Silat</h3>
+                        <p class="text-gray-600 mb-2">Gedung Paraduta Kodim 1009</p>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">Tapin</span>
+                                <span class="text-sm text-gray-500">vs</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">Barito Kuala</span>
+                                <span class="text-xs text-pink-600">Kelas 60kg</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-indigo-500">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-semibold">📅 Besok</span>
+                            <span class="text-gray-500">19:00</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Bola Basket Final</h3>
+                        <p class="text-gray-600 mb-2">Lapangan Basket RTH Kijangmas</p>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">Tapin</span>
+                                <span class="text-sm text-gray-500">vs</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">Tanah Laut</span>
+                                <span class="text-xs text-indigo-600">Final Putra</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-yellow-500">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">📅 Besok</span>
+                            <span class="text-gray-500">20:30</span>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Sepak Bola</h3>
+                        <p class="text-gray-600 mb-2">Lapangan Sepak Bola Karang Taruna</p>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">Tapin</span>
+                                <span class="text-sm text-gray-500">vs</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold">Kotabaru</span>
+                                <span class="text-xs text-yellow-600">Semifinal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Highlight Hari Ini -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Highlight Hari Ini</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center">
+                            <span class="text-6xl">🏆</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg mb-2">Rekor Baru Atletik!</h3>
+                            <p class="text-gray-600 mb-4">Atlet Tapin pecahkan rekor lari 100m dengan waktu 10.85 detik</p>
+                            <span class="text-sm text-blue-600 font-semibold">2 jam yang lalu</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
+                            <span class="text-6xl">🥇</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg mb-2">Hat-trick Emas Renang</h3>
+                            <p class="text-gray-600 mb-4">Perenang Tapin raih 3 medali emas berturut-turut dalam satu hari</p>
+                            <span class="text-sm text-blue-600 font-semibold">4 jam yang lalu</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Berita Tab -->
+        <div id="content-berita" class="tab-content hidden">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Berita Terkini PORPROV Kalsel 2025</h2>
+            
+            <!-- Filter Berita -->
+            <div class="mb-6 flex flex-wrap gap-2">
+                <button onclick="filterNews('semua')" class="news-filter-btn bg-yellow-400 text-blue-900 px-4 py-2 rounded-lg font-semibold">Semua</button>
+                <button onclick="filterNews('hasil')" class="news-filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300">Hasil Pertandingan</button>
+                <button onclick="filterNews('atlet')" class="news-filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300">Profil Atlet</button>
+                <button onclick="filterNews('venue')" class="news-filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300">Info Venue</button>
+                <button onclick="filterNews('acara')" class="news-filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300">Acara Khusus</button>
+            </div>
+
+            <!-- Berita Utama -->
+            <div class="mb-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
+                        <span class="text-8xl">🏆</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm font-semibold">BREAKING NEWS</span>
+                        <h3 class="font-bold text-2xl mb-3 mt-2">Kabupaten Tapin Mantap di Puncak Klasemen dengan 58 Medali</h3>
+                        <p class="text-gray-600 mb-4">Dengan tambahan 6 medali hari ini, Kabupaten Tapin semakin kokoh memimpin perolehan medali PORPROV Kalsel 2025. Prestasi gemilang ini diraih dari berbagai cabang olahraga...</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">15 menit yang lalu</span>
+                            <button class="text-blue-600 font-semibold hover:text-blue-800">Baca Selengkapnya →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Berita -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="newsGrid">
+                <!-- Berita akan diisi oleh JavaScript -->
+            </div>
+        </div>
+
+        <!-- Statistik Tab -->
+        <div id="content-statistik" class="tab-content hidden">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Statistik PORPROV Kalsel 2025</h2>
+            
+            <!-- Statistik Umum -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-blue-900">Statistik Umum</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="stats-card rounded-lg p-6 text-center hover-scale">
+                        <div class="text-4xl mb-2">🏅</div>
+                        <div class="text-3xl font-bold text-yellow-600">189</div>
+                        <div class="text-gray-600">Total Medali Terdistribusi</div>
+                    </div>
+                    <div class="stats-card rounded-lg p-6 text-center hover-scale">
+                        <div class="text-4xl mb-2">⚡</div>
+                        <div class="text-3xl font-bold text-green-600">156</div>
+                        <div class="text-gray-600">Pertandingan Selesai</div>
+                    </div>
+                    <div class="stats-card rounded-lg p-6 text-center hover-scale">
+                        <div class="text-4xl mb-2">🎯</div>
+                        <div class="text-3xl font-bold text-blue-600">89</div>
+                        <div class="text-gray-600">Pertandingan Tersisa</div>
+                    </div>
+                    <div class="stats-card rounded-lg p-6 text-center hover-scale">
+                        <div class="text-4xl mb-2">📊</div>
+                        <div class="text-3xl font-bold text-purple-600">77%</div>
+                        <div class="text-gray-600">Progress Keseluruhan</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grafik Perolehan Medali Harian -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-blue-900">Perolehan Medali Harian Kab. Tapin</h3>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="h-64 flex items-end justify-between space-x-2">
+                        <div class="flex flex-col items-center">
+                            <div class="bg-yellow-400 w-8 h-16 rounded-t"></div>
+                            <span class="text-sm mt-2">26/10</span>
+                            <span class="text-xs text-gray-500">8 medali</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-yellow-400 w-8 h-20 rounded-t"></div>
+                            <span class="text-sm mt-2">27/10</span>
+                            <span class="text-xs text-gray-500">10 medali</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-yellow-400 w-8 h-24 rounded-t"></div>
+                            <span class="text-sm mt-2">28/10</span>
+                            <span class="text-xs text-gray-500">12 medali</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-yellow-400 w-8 h-28 rounded-t"></div>
+                            <span class="text-sm mt-2">29/10</span>
+                            <span class="text-xs text-gray-500">14 medali</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-yellow-400 w-8 h-32 rounded-t"></div>
+                            <span class="text-sm mt-2">30/10</span>
+                            <span class="text-xs text-gray-500">16 medali</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Top Performers -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-blue-900">Atlet Terbaik Kab. Tapin</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center hover-scale">
+                        <div class="w-20 h-20 bg-yellow-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-2xl">👨‍🏊</span>
+                        </div>
+                        <h4 class="font-bold text-lg">Ahmad Rizki</h4>
+                        <p class="text-gray-600 mb-2">Renang</p>
+                        <div class="flex justify-center space-x-1">
+                            <span class="text-2xl">🥇🥇🥇</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">3 Medali Emas</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center hover-scale">
+                        <div class="w-20 h-20 bg-yellow-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-2xl">👩‍🏃</span>
+                        </div>
+                        <h4 class="font-bold text-lg">Siti Aminah</h4>
+                        <p class="text-gray-600 mb-2">Atletik</p>
+                        <div class="flex justify-center space-x-1">
+                            <span class="text-2xl">🥇🥇🥈</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">2 Emas, 1 Perak</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center hover-scale">
+                        <div class="w-20 h-20 bg-yellow-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-2xl">👨‍⚽</span>
+                        </div>
+                        <h4 class="font-bold text-lg">Budi Santoso</h4>
+                        <p class="text-gray-600 mb-2">Sepak Bola</p>
+                        <div class="flex justify-center space-x-1">
+                            <span class="text-2xl">🥇🥈🥉</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">1 Emas, 1 Perak, 1 Perunggu</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Venue & Cabor Tab -->
+        <div id="content-venue" class="tab-content hidden">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Venue & Cabang Olahraga</h2>
+            <div class="mb-6">
+                <input type="text" id="searchVenue" placeholder="Cari cabang olahraga..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="venueGrid">
+                <!-- Sports cards will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Jadwal Tab -->
+        <div id="content-jadwal" class="tab-content hidden">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Jadwal Pertandingan</h2>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="p-6 border-b">
+                    <div class="flex flex-wrap gap-4">
+                        <select class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400">
+                            <option>Semua Cabang Olahraga</option>
+                            <option>Tinju</option>
+                            <option>Muaythai</option>
+                            <option>Kick Boxing</option>
+                            <option>Teq Ball</option>
+                            <option>Panahan</option>
+                            <option>Panjat Tebing</option>
+                            <option>Tenis Lapangan</option>
+                            <option>Hapkido</option>
+                            <option>Taekwondo</option>
+                            <option>Tenis Meja</option>
+                            <option>Wushu</option>
+                            <option>Barongsai</option>
+                            <option>Menembak Indoor</option>
+                            <option>Menembak Outdoor</option>
+                            <option>Pencak Silat</option>
+                            <option>Karate</option>
+                            <option>Kempo</option>
+                            <option>Bulu Tangkis</option>
+                            <option>Bola Volly Indoor</option>
+                            <option>Balap Sepeda</option>
+                            <option>Catur</option>
+                            <option>Baseball/Softball</option>
+                            <option>Bola Basket</option>
+                            <option>Senam</option>
+                            <option>IODI</option>
+                            <option>Bridge</option>
+                            <option>E-Sport</option>
+                            <option>Binaraga</option>
+                            <option>Angkat Besi</option>
+                            <option>Angkat Berat</option>
+                            <option>Judo</option>
+                            <option>Jujitsu</option>
+                            <option>Gate Ball</option>
+                            <option>Renang</option>
+                            <option>Sepak Takraw</option>
+                            <option>Billiard</option>
+                            <option>Balap Motor</option>
+                            <option>Kurash</option>
+                            <option>Anggar</option>
+                            <option>Petanque</option>
+                            <option>Drumband</option>
+                            <option>Atletik</option>
+                            <option>Sepakbola Putra</option>
+                            <option>Sepakbola Putri</option>
+                            <option>Skate Board</option>
+                            <option>Sepatu Roda</option>
+                            <option>Pickle Ball</option>
+                            <option>MMA</option>
+                            <option>Paralayang</option>
+                            <option>Arung Jeram</option>
+                            <option>Bola Tangan</option>
+                            <option>Futsal</option>
+                            <option>Dayung</option>
+                            <option>Volly Pasir</option>
+                            <option>Ski Air</option>
+                            <option>Berkuda Memanah</option>
+                            <option>Renang Terbuka</option>
+                            <option>Bola Tangan Pasir</option>
+                            <option>Triathlon</option>
+                            <option>Aeromodeling</option>
+                            <option>Gulat</option>
+                            <option>Sambo</option>
+                            <option>Golf</option>
+                            <option>Loncat Indah</option>
+                        </select>
+                        <input type="date" class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400">
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Waktu</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cabang Olahraga</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pertandingan</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Venue</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200" id="scheduleTableBody">
+                            <!-- Schedule will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Official Tab -->
+        <div id="content-official" class="tab-content hidden">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Kontak Official</h2>
+            <div class="mb-6">
+                <input type="text" id="searchOfficial" placeholder="Cari official cabang olahraga..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="officialGrid">
+                <!-- Official cards will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Layanan Tab -->
+        <div id="content-layanan" class="tab-content hidden">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Layanan Sekretariat KONI Tapin</h2>
+            
+            <!-- Layanan Utama -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-blue-900">🏢 Layanan Utama</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-red-500">
+                        <div class="text-4xl mb-4 text-center">🏥</div>
+                        <h4 class="font-bold text-lg mb-4 text-center text-blue-900">Layanan Kesehatan</h4>
+                        <ul class="space-y-2 text-gray-600 mb-4">
+                            <li>• Poliklinik 24 jam</li>
+                            <li>• Ambulans siaga</li>
+                            <li>• Tim medis berpengalaman</li>
+                            <li>• Obat-obatan lengkap</li>
+                        </ul>
+                        <div class="border-t pt-4 space-y-1 text-sm">
+                            <p class="font-semibold text-blue-900">Kontak:</p>
+                            <p class="text-gray-600">📞 0812-1111-2222</p>
+                            <p class="text-gray-600">👨‍⚕️ dr. Ahmad Rizki</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-blue-500">
+                        <div class="text-4xl mb-4 text-center">🛡️</div>
+                        <h4 class="font-bold text-lg mb-4 text-center text-blue-900">Keamanan</h4>
+                        <ul class="space-y-2 text-gray-600 mb-4">
+                            <li>• Patroli 24 jam</li>
+                            <li>• CCTV di semua venue</li>
+                            <li>• Pos keamanan</li>
+                            <li>• Koordinasi dengan Polres</li>
+                        </ul>
+                        <div class="border-t pt-4 space-y-1 text-sm">
+                            <p class="font-semibold text-blue-900">Kontak:</p>
+                            <p class="text-gray-600">📞 0813-2222-3333</p>
+                            <p class="text-gray-600">👮‍♂️ Kombes Budi Hartono</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-green-500">
+                        <div class="text-4xl mb-4 text-center">📊</div>
+                        <h4 class="font-bold text-lg mb-4 text-center text-blue-900">Monitoring & Evaluasi</h4>
+                        <ul class="space-y-2 text-gray-600 mb-4">
+                            <li>• Monitoring pelaksanaan</li>
+                            <li>• Evaluasi kinerja</li>
+                            <li>• Laporan harian</li>
+                            <li>• Analisis data</li>
+                        </ul>
+                        <div class="border-t pt-4 space-y-1 text-sm">
+                            <p class="font-semibold text-blue-900">Kontak:</p>
+                            <p class="text-gray-600">📞 0815-4444-5555</p>
+                            <p class="text-gray-600">📊 Indra Monitoring</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-yellow-500">
+                        <div class="text-4xl mb-4 text-center">🚌</div>
+                        <h4 class="font-bold text-lg mb-4 text-center text-blue-900">Transportasi</h4>
+                        <ul class="space-y-2 text-gray-600 mb-4">
+                            <li>• Bus antar venue</li>
+                            <li>• Shuttle ke penginapan</li>
+                            <li>• Transportasi darurat</li>
+                            <li>• Jadwal teratur</li>
+                        </ul>
+                        <div class="border-t pt-4 space-y-1 text-sm">
+                            <p class="font-semibold text-blue-900">Kontak:</p>
+                            <p class="text-gray-600">📞 0816-5555-6666</p>
+                            <p class="text-gray-600">🚌 Pak Hendra Transport</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 hover-scale border-l-4 border-purple-500">
+                        <div class="text-4xl mb-4 text-center">ℹ️</div>
+                        <h4 class="font-bold text-lg mb-4 text-center text-blue-900">Pusat Informasi</h4>
+                        <ul class="space-y-2 text-gray-600 mb-4">
+                            <li>• Help desk 24 jam</li>
+                            <li>• Papan informasi</li>
+                            <li>• Pengumuman resmi</li>
+                            <li>• Bantuan teknis</li>
+                        </ul>
+                        <div class="border-t pt-4 space-y-1 text-sm">
+                            <p class="font-semibold text-blue-900">Kontak:</p>
+                            <p class="text-gray-600">📞 0817-6666-7777</p>
+                            <p class="text-gray-600">ℹ️ Ibu Rina Informasi</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Akomodasi -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-blue-900">🏨 Akomodasi Kontingen Tapin</h3>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Hotel Tapin Indah -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale">
+                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-4 text-white">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-3xl">🏨</span>
+                                <div>
+                                    <h4 class="font-bold text-lg">Hotel Tapin Indah</h4>
+                                    <p class="text-blue-100 text-sm">Hotel Bintang 3</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h5 class="font-semibold text-gray-800 mb-2">Fasilitas:</h5>
+                                <ul class="space-y-1 text-sm text-gray-600">
+                                    <li>✓ AC, TV, WiFi gratis</li>
+                                    <li>✓ Restaurant & Room Service</li>
+                                    <li>✓ Laundry service</li>
+                                    <li>✓ Parkir luas</li>
+                                </ul>
+                            </div>
+                            <div class="mb-4">
+                                <p class="text-sm text-gray-600">
+                                    <span class="font-semibold">Lokasi:</span> Strategis di pusat kota Rantau
+                                </p>
+                                <p class="text-xs text-blue-600 mt-1">📍 Jl. Ahmad Yani No. 123, Rantau</p>
+                            </div>
+                            <div class="border-t pt-4">
+                                <p class="text-sm font-semibold text-blue-900">Kapasitas: 50 kamar</p>
+                                <p class="text-xs text-gray-500">Cocok untuk official dan tamu VIP</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Wisma Olahraga -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale">
+                        <div class="bg-gradient-to-r from-green-500 to-green-600 p-4 text-white">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-3xl">🏢</span>
+                                <div>
+                                    <h4 class="font-bold text-lg">Wisma Olahraga</h4>
+                                    <p class="text-green-100 text-sm">Khusus Atlet</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h5 class="font-semibold text-gray-800 mb-2">Fasilitas:</h5>
+                                <ul class="space-y-1 text-sm text-gray-600">
+                                    <li>✓ Kamar sharing 2-4 orang</li>
+                                    <li>✓ Gym & fitness center</li>
+                                    <li>✓ Ruang recovery</li>
+                                    <li>✓ Kantin atlet</li>
+                                </ul>
+                            </div>
+                            <div class="mb-4">
+                                <p class="text-sm text-gray-600">
+                                    <span class="font-semibold">Lokasi:</span> Dekat venue pertandingan
+                                </p>
+                                <p class="text-xs text-green-600 mt-1">📍 Kompleks Olahraga Tapin</p>
+                            </div>
+                            <div class="border-t pt-4">
+                                <p class="text-sm font-semibold text-green-900">Kapasitas: 120 atlet</p>
+                                <p class="text-xs text-gray-500">Dilengkapi fasilitas olahraga</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Homestay Keluarga -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale">
+                        <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-4 text-white">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-3xl">🏠</span>
+                                <div>
+                                    <h4 class="font-bold text-lg">Homestay Keluarga</h4>
+                                    <p class="text-yellow-100 text-sm">Pengalaman Budaya</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h5 class="font-semibold text-gray-800 mb-2">Keunggulan:</h5>
+                                <ul class="space-y-1 text-sm text-gray-600">
+                                    <li>✓ Suasana keluarga hangat</li>
+                                    <li>✓ Makanan tradisional Banjar</li>
+                                    <li>✓ Harga terjangkau</li>
+                                    <li>✓ Interaksi budaya lokal</li>
+                                </ul>
+                            </div>
+                            <div class="mb-4">
+                                <p class="text-sm text-gray-600">
+                                    <span class="font-semibold">Lokasi:</span> Tersebar di berbagai desa
+                                </p>
+                                <p class="text-xs text-orange-600 mt-1">📍 Berbagai lokasi di Tapin</p>
+                            </div>
+                            <div class="border-t pt-4">
+                                <p class="text-sm font-semibold text-orange-900">Kapasitas: 80 tamu</p>
+                                <p class="text-xs text-gray-500">Pengalaman autentik Kalimantan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Kontak Akomodasi -->
+                <div class="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6">
+                    <div class="text-center">
+                        <h4 class="font-bold text-xl text-blue-900 mb-4">📞 Koordinator Akomodasi</h4>
+                        <div class="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-8">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-2xl">👩‍💼</span>
+                                <span class="font-semibold text-gray-800">Ibu Maya Akomodasi</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-2xl">📱</span>
+                                <a href="tel:08143334444" class="font-semibold text-blue-600 hover:text-blue-800">0814-3333-4444</a>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-4 max-w-2xl mx-auto">
+                            Hubungi koordinator akomodasi untuk reservasi, informasi ketersediaan kamar, 
+                            dan bantuan pemilihan akomodasi yang sesuai dengan kebutuhan kontingen Anda.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Layanan Tambahan -->
+            <section>
+                <h3 class="text-2xl font-bold mb-6 text-blue-900">🎯 Layanan Tambahan</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white rounded-lg shadow p-4 text-center hover-scale">
+                        <div class="text-3xl mb-2">🍽️</div>
+                        <h5 class="font-semibold text-gray-800">Katering</h5>
+                        <p class="text-xs text-gray-600 mt-1">Makanan halal & bergizi</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-4 text-center hover-scale">
+                        <div class="text-3xl mb-2">🧺</div>
+                        <h5 class="font-semibold text-gray-800">Laundry</h5>
+                        <p class="text-xs text-gray-600 mt-1">Cuci cepat & bersih</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-4 text-center hover-scale">
+                        <div class="text-3xl mb-2">📶</div>
+                        <h5 class="font-semibold text-gray-800">WiFi</h5>
+                        <p class="text-xs text-gray-600 mt-1">Internet cepat gratis</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-4 text-center hover-scale">
+                        <div class="text-3xl mb-2">🛒</div>
+                        <h5 class="font-semibold text-gray-800">Minimarket</h5>
+                        <p class="text-xs text-gray-600 mt-1">Kebutuhan sehari-hari</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+
+        <!-- Klasemen Tab -->
+        <div id="content-klasemen" class="tab-content hidden">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Klasemen Medali</h2>
+            
+            <!-- Toggle Buttons -->
+            <div class="flex justify-center mb-8">
+                <div class="bg-gray-200 rounded-lg p-1">
+                    <button onclick="showMedalTable('umum')" id="btn-umum" class="px-6 py-2 rounded-lg font-semibold bg-yellow-400 text-blue-900">
+                        Klasemen Umum
+                    </button>
+                    <button onclick="showMedalTable('tapin')" id="btn-tapin" class="px-6 py-2 rounded-lg font-semibold text-gray-600 hover:bg-gray-300">
+                        Khusus Kab. Tapin
+                    </button>
+                </div>
+            </div>
+
+            <!-- Klasemen Umum -->
+            <div id="medal-umum" class="medal-table">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <table class="w-full">
+                        <thead class="gradient-bg text-white">
+                            <tr>
+                                <th class="px-6 py-4 text-left">Peringkat</th>
+                                <th class="px-6 py-4 text-left">Kabupaten/Kota</th>
+                                <th class="px-6 py-4 text-center">🥇</th>
+                                <th class="px-6 py-4 text-center">🥈</th>
+                                <th class="px-6 py-4 text-center">🥉</th>
+                                <th class="px-6 py-4 text-center">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="bg-yellow-50">
+                                <td class="px-6 py-4 font-bold text-yellow-600">1</td>
+                                <td class="px-6 py-4 font-semibold">Kabupaten Tapin</td>
+                                <td class="px-6 py-4 text-center font-bold">20</td>
+                                <td class="px-6 py-4 text-center font-bold">18</td>
+                                <td class="px-6 py-4 text-center font-bold">20</td>
+                                <td class="px-6 py-4 text-center font-bold text-lg">58</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 font-bold text-gray-600">2</td>
+                                <td class="px-6 py-4 font-semibold">Kabupaten Banjar</td>
+                                <td class="px-6 py-4 text-center font-bold">18</td>
+                                <td class="px-6 py-4 text-center font-bold">16</td>
+                                <td class="px-6 py-4 text-center font-bold">14</td>
+                                <td class="px-6 py-4 text-center font-bold text-lg">48</td>
+                            </tr>
+                            <tr class="bg-orange-50">
+                                <td class="px-6 py-4 font-bold text-orange-600">3</td>
+                                <td class="px-6 py-4 font-semibold">Kota Banjarmasin</td>
+                                <td class="px-6 py-4 text-center font-bold">14</td>
+                                <td class="px-6 py-4 text-center font-bold">15</td>
+                                <td class="px-6 py-4 text-center font-bold">13</td>
+                                <td class="px-6 py-4 text-center font-bold text-lg">42</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">4</td>
+                                <td class="px-6 py-4">Kabupaten Barito Kuala</td>
+                                <td class="px-6 py-4 text-center">12</td>
+                                <td class="px-6 py-4 text-center">14</td>
+                                <td class="px-6 py-4 text-center">12</td>
+                                <td class="px-6 py-4 text-center font-bold">38</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">5</td>
+                                <td class="px-6 py-4">Kabupaten Tanah Laut</td>
+                                <td class="px-6 py-4 text-center">10</td>
+                                <td class="px-6 py-4 text-center">12</td>
+                                <td class="px-6 py-4 text-center">13</td>
+                                <td class="px-6 py-4 text-center font-bold">35</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">6</td>
+                                <td class="px-6 py-4">Kota Banjarbaru</td>
+                                <td class="px-6 py-4 text-center">9</td>
+                                <td class="px-6 py-4 text-center">11</td>
+                                <td class="px-6 py-4 text-center">12</td>
+                                <td class="px-6 py-4 text-center font-bold">32</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">7</td>
+                                <td class="px-6 py-4">Kabupaten Hulu Sungai Selatan</td>
+                                <td class="px-6 py-4 text-center">8</td>
+                                <td class="px-6 py-4 text-center">10</td>
+                                <td class="px-6 py-4 text-center">11</td>
+                                <td class="px-6 py-4 text-center font-bold">29</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">8</td>
+                                <td class="px-6 py-4">Kabupaten Kotabaru</td>
+                                <td class="px-6 py-4 text-center">7</td>
+                                <td class="px-6 py-4 text-center">9</td>
+                                <td class="px-6 py-4 text-center">10</td>
+                                <td class="px-6 py-4 text-center font-bold">26</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">9</td>
+                                <td class="px-6 py-4">Kabupaten Balangan</td>
+                                <td class="px-6 py-4 text-center">6</td>
+                                <td class="px-6 py-4 text-center">8</td>
+                                <td class="px-6 py-4 text-center">9</td>
+                                <td class="px-6 py-4 text-center font-bold">23</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">10</td>
+                                <td class="px-6 py-4">Kabupaten Hulu Sungai Tengah</td>
+                                <td class="px-6 py-4 text-center">5</td>
+                                <td class="px-6 py-4 text-center">7</td>
+                                <td class="px-6 py-4 text-center">8</td>
+                                <td class="px-6 py-4 text-center font-bold">20</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">11</td>
+                                <td class="px-6 py-4">Kabupaten Tabalong</td>
+                                <td class="px-6 py-4 text-center">4</td>
+                                <td class="px-6 py-4 text-center">6</td>
+                                <td class="px-6 py-4 text-center">7</td>
+                                <td class="px-6 py-4 text-center font-bold">17</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">12</td>
+                                <td class="px-6 py-4">Kabupaten Hulu Sungai Utara</td>
+                                <td class="px-6 py-4 text-center">3</td>
+                                <td class="px-6 py-4 text-center">5</td>
+                                <td class="px-6 py-4 text-center">6</td>
+                                <td class="px-6 py-4 text-center font-bold">14</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">13</td>
+                                <td class="px-6 py-4">Kabupaten Tanah Bumbu</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center">4</td>
+                                <td class="px-6 py-4 text-center">5</td>
+                                <td class="px-6 py-4 text-center font-bold">11</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Klasemen Khusus Tapin -->
+            <div id="medal-tapin" class="medal-table hidden">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <table class="w-full">
+                        <thead class="gradient-bg text-white">
+                            <tr>
+                                <th class="px-6 py-4 text-left">Peringkat</th>
+                                <th class="px-6 py-4 text-left">Cabang Olahraga</th>
+                                <th class="px-6 py-4 text-center">🥇</th>
+                                <th class="px-6 py-4 text-center">🥈</th>
+                                <th class="px-6 py-4 text-center">🥉</th>
+                                <th class="px-6 py-4 text-center">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="bg-yellow-50">
+                                <td class="px-6 py-4 font-bold text-yellow-600">1</td>
+                                <td class="px-6 py-4 font-semibold">Renang</td>
+                                <td class="px-6 py-4 text-center font-bold">4</td>
+                                <td class="px-6 py-4 text-center font-bold">3</td>
+                                <td class="px-6 py-4 text-center font-bold">2</td>
+                                <td class="px-6 py-4 text-center font-bold text-lg">9</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">2</td>
+                                <td class="px-6 py-4">Sepak Bola</td>
+                                <td class="px-6 py-4 text-center">3</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center font-bold">7</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">3</td>
+                                <td class="px-6 py-4">Atletik</td>
+                                <td class="px-6 py-4 text-center">3</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center">3</td>
+                                <td class="px-6 py-4 text-center font-bold">8</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">4</td>
+                                <td class="px-6 py-4">Bulu Tangkis</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center">3</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center font-bold">7</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">5</td>
+                                <td class="px-6 py-4">Pencak Silat</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center">3</td>
+                                <td class="px-6 py-4 text-center font-bold">7</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">6</td>
+                                <td class="px-6 py-4">Panahan</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center">1</td>
+                                <td class="px-6 py-4 text-center font-bold">5</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">7</td>
+                                <td class="px-6 py-4">Tinju</td>
+                                <td class="px-6 py-4 text-center">1</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center font-bold">5</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">8</td>
+                                <td class="px-6 py-4">Karate</td>
+                                <td class="px-6 py-4 text-center">1</td>
+                                <td class="px-6 py-4 text-center">1</td>
+                                <td class="px-6 py-4 text-center">2</td>
+                                <td class="px-6 py-4 text-center font-bold">4</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">9</td>
+                                <td class="px-6 py-4">Bola Basket</td>
+                                <td class="px-6 py-4 text-center">1</td>
+                                <td class="px-6 py-4 text-center">1</td>
+                                <td class="px-6 py-4 text-center">1</td>
+                                <td class="px-6 py-4 text-center font-bold">3</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">10</td>
+                                <td class="px-6 py-4">Tenis Lapangan</td>
+                                <td class="px-6 py-4 text-center">1</td>
+                                <td class="px-6 py-4 text-center">1</td>
+                                <td class="px-6 py-4 text-center">1</td>
+                                <td class="px-6 py-4 text-center font-bold">3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="venueModal" class="modal">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modalTitle" class="text-xl font-bold text-blue-900"></h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div id="modalContent" class="space-y-4">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+            <div class="mt-6 flex space-x-4">
+                <button onclick="closeModal()" class="flex-1 bg-gray-300 text-gray-700 py-2 rounded-lg font-semibold hover:bg-gray-400 transition-colors">
+                    Tutup
+                </button>
+                <button id="mapsButton" class="flex-1 bg-yellow-400 text-blue-900 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition-colors">
+                    Lihat di Maps
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-12 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">PORPROV Kalsel 2025</h3>
+                    <p class="text-blue-200 mb-4">Pekan Olahraga Provinsi Kalimantan Selatan yang diselenggarakan di Pelaihari - Tanah Laut.</p>
+                    <div class="flex space-x-4">
+                        <span class="text-2xl">📧</span>
+                        <span class="text-2xl">📱</span>
+                        <span class="text-2xl">🌐</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Kontak</h3>
+                    <div class="space-y-2 text-blue-200">
+                        <p>📍 Sekretariat KONI Tapin</p>
+                        <p>📞 (0511) 123-4567</p>
+                        <p>📧 info@porprovkalsel2025.id</p>
+                        <p>🌐 www.porprovkalsel2025.id</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Informasi</h3>
+                    <div class="space-y-2 text-blue-200">
+                        <p>🗓️ Oktober - November 2025</p>
+                        <p>📍 Kabupaten Tapin</p>
+                        <p>🏆 69 Cabang Olahraga</p>
+                        <p>👥 13 Kabupaten/Kota</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2025 PORPROV Kalsel. Semua hak dilindungi. Diselenggarakan oleh KONI Tapin.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('bg-gray-100', 'text-gray-700');
+            });
+            
+            // Show selected tab content
+            const selectedContent = document.getElementById(`content-${tabName}`);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
+            }
+            
+            // Add active class to selected tab button
+            const selectedButton = document.getElementById(`tab-${tabName}`);
+            if (selectedButton) {
+                selectedButton.classList.add('tab-active');
+                selectedButton.classList.remove('bg-gray-100', 'text-gray-700');
+            }
+            
+            // Initialize content for specific tabs
+            if (tabName === 'venue') {
+                populateVenueGrid();
+            } else if (tabName === 'official') {
+                populateOfficialGrid();
+            } else if (tabName === 'berita') {
+                populateNewsGrid();
+            } else if (tabName === 'jadwal') {
+                populateScheduleTable();
+            }
+        }
+
+        // News functionality
+        function filterNews(category) {
+            // Update filter buttons
+            const filterButtons = document.querySelectorAll('.news-filter-btn');
+            filterButtons.forEach(btn => {
+                btn.classList.remove('bg-yellow-400', 'text-blue-900');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            event.target.classList.add('bg-yellow-400', 'text-blue-900');
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            
+            // Filter news (for now just repopulate)
+            populateNewsGrid(category);
+        }
+
+        function populateNewsGrid(filter = 'semua') {
+            const newsGrid = document.getElementById('newsGrid');
+            if (!newsGrid) return;
+            
+            const newsData = [
+                {
+                    category: 'hasil',
+                    title: 'Tapin Juara Umum Bulu Tangkis',
+                    excerpt: 'Tim bulu tangkis Kabupaten Tapin berhasil meraih juara umum dengan 7 medali...',
+                    time: '1 jam yang lalu',
+                    image: '🏸'
+                },
+                {
+                    category: 'atlet',
+                    title: 'Profil Ahmad Rizki: Perenang Andalan Tapin',
+                    excerpt: 'Ahmad Rizki, perenang 22 tahun yang telah meraih 4 medali emas...',
+                    time: '2 jam yang lalu',
+                    image: '🏊‍♂️'
+                },
+                {
+                    category: 'hasil',
+                    title: 'Rekor Baru Atletik Dipecahkan',
+                    excerpt: 'Atlet lari 100m putra dari Tapin pecahkan rekor dengan waktu 10.85 detik...',
+                    time: '3 jam yang lalu',
+                    image: '🏃‍♂️'
+                },
+                {
+                    category: 'venue',
+                    title: 'Renovasi GOR Tuntung Pandang Selesai',
+                    excerpt: 'Venue utama bulu tangkis telah selesai direnovasi dengan fasilitas modern...',
+                    time: '4 jam yang lalu',
+                    image: '🏟️'
+                },
+                {
+                    category: 'acara',
+                    title: 'Upacara Penutupan 15 November',
+                    excerpt: 'Upacara penutupan PORPROV Kalsel 2025 akan digelar dengan meriah...',
+                    time: '5 jam yang lalu',
+                    image: '🎉'
+                },
+                {
+                    category: 'hasil',
+                    title: 'Final Sepak Bola Tapin vs Banjar',
+                    excerpt: 'Pertandingan final sepak bola putra akan mempertemukan Tapin dan Banjar...',
+                    time: '6 jam yang lalu',
+                    image: '⚽'
+                }
+            ];
+            
+            let filteredNews = newsData;
+            if (filter !== 'semua') {
+                filteredNews = newsData.filter(news => news.category === filter);
+            }
+            
+            newsGrid.innerHTML = '';
+            filteredNews.forEach(news => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-lg overflow-hidden news-card hover-scale';
+                
+                card.innerHTML = `
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center">
+                        <span class="text-6xl">${news.image}</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">${news.title}</h3>
+                        <p class="text-gray-600 mb-4">${news.excerpt}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">${news.time}</span>
+                            <button class="text-blue-600 font-semibold hover:text-blue-800">Baca →</button>
+                        </div>
+                    </div>
+                `;
+                
+                newsGrid.appendChild(card);
+            });
+        }
+
+        // Medal table functionality
+        function showMedalTable(type) {
+            // Hide all medal tables
+            document.getElementById('medal-umum').classList.add('hidden');
+            document.getElementById('medal-tapin').classList.add('hidden');
+            
+            // Remove active class from all buttons
+            document.getElementById('btn-umum').classList.remove('bg-yellow-400', 'text-blue-900');
+            document.getElementById('btn-umum').classList.add('text-gray-600', 'hover:bg-gray-300');
+            document.getElementById('btn-tapin').classList.remove('bg-yellow-400', 'text-blue-900');
+            document.getElementById('btn-tapin').classList.add('text-gray-600', 'hover:bg-gray-300');
+            
+            // Show selected table and activate button
+            if (type === 'umum') {
+                document.getElementById('medal-umum').classList.remove('hidden');
+                document.getElementById('btn-umum').classList.add('bg-yellow-400', 'text-blue-900');
+                document.getElementById('btn-umum').classList.remove('text-gray-600', 'hover:bg-gray-300');
+            } else {
+                document.getElementById('medal-tapin').classList.remove('hidden');
+                document.getElementById('btn-tapin').classList.add('bg-yellow-400', 'text-blue-900');
+                document.getElementById('btn-tapin').classList.remove('text-gray-600', 'hover:bg-gray-300');
+            }
+        }
+
+        // Populate venue grid
+        function populateVenueGrid() {
+            const venueGrid = document.getElementById('venueGrid');
+            if (!venueGrid) return;
+            
+            venueGrid.innerHTML = '';
+            sportsData.forEach(sport => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-lg p-6 sport-card hover-scale cursor-pointer';
+                card.onclick = () => openModal(sport.name);
+                
+                card.innerHTML = `
+                    <div class="text-4xl text-center mb-4">${sport.icon}</div>
+                    <h3 class="font-bold text-lg mb-2 text-center text-blue-900">${sport.name}</h3>
+                    <p class="text-gray-600 text-sm mb-2">${sport.venue}</p>
+                    <p class="text-blue-600 text-sm font-semibold">${sport.date}</p>
+                `;
+                
+                venueGrid.appendChild(card);
+            });
+        }
+
+        // Populate official grid
+        function populateOfficialGrid() {
+            const officialGrid = document.getElementById('officialGrid');
+            if (!officialGrid) return;
+            
+            officialGrid.innerHTML = '';
+            
+            const officialsData = [
+                {
+                    sport: 'Atletik',
+                    icon: '🏃',
+                    officials: [
+                        { name: 'Jessika Dini Qiromah', phone: '0822 1472 2948' }
+                    ]
+                },
+                {
+                    sport: 'Angkat Berat',
+                    icon: '🏋️',
+                    officials: [
+                        { name: 'GATOET KURNIA', phone: '085248201917' },
+                        { name: 'SYAMSUDINNOR', phone: '081349561887' }
+                    ]
+                },
+                {
+                    sport: 'Angkat Besi',
+                    icon: '🏋️',
+                    officials: [
+                        { name: 'Muhammad Ilhami', phone: '0821 4943 3423' },
+                        { name: 'Rizki Pebrianur', phone: '0823 5198 4224' }
+                    ]
+                },
+                {
+                    sport: 'Balap Sepeda',
+                    icon: '🚴',
+                    officials: [
+                        { name: 'Noorhayani, ST., MM', phone: '082156753667' },
+                        { name: 'Noviri Malkan', phone: '081349500394' }
+                    ]
+                }
+            ];
+            
+            officialsData.forEach(sportOfficial => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-lg p-6 hover-scale';
+                
+                const officialsList = sportOfficial.officials.map(official => 
+                    `<div class="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
+                        <span class="font-medium">${official.name}</span>
+                        <a href="tel:${official.phone}" class="text-blue-600 hover:text-blue-800 text-sm">${official.phone}</a>
+                    </div>`
+                ).join('');
+                
+                card.innerHTML = `
+                    <div class="text-4xl text-center mb-4">${sportOfficial.icon}</div>
+                    <h3 class="font-bold text-lg mb-4 text-center text-blue-900">${sportOfficial.sport}</h3>
+                    <div class="space-y-2">
+                        ${officialsList}
+                    </div>
+                `;
+                
+                officialGrid.appendChild(card);
+            });
+        }
+
+        // Modal functionality
+        function openModal(sportName) {
+            const sport = sportsData.find(s => s.name === sportName);
+            if (sport) {
+                document.getElementById('modalTitle').textContent = sport.name;
+                document.getElementById('modalContent').innerHTML = `
+                    <div class="text-4xl text-center mb-4">${sport.icon}</div>
+                    <p><strong>Venue:</strong> ${sport.venue}</p>
+                    <p><strong>Tanggal:</strong> ${sport.date}</p>
+                `;
+                document.getElementById('mapsButton').onclick = () => {
+                    window.open(sport.maps, '_blank', 'noopener,noreferrer');
+                };
+                document.getElementById('venueModal').classList.add('show');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('venueModal').classList.remove('show');
+        }
+
+        // Search functionality
+        function setupSearch() {
+            const searchVenue = document.getElementById('searchVenue');
+            const searchOfficial = document.getElementById('searchOfficial');
+            
+            if (searchVenue) {
+                searchVenue.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    const cards = document.querySelectorAll('#venueGrid .sport-card');
+                    cards.forEach(card => {
+                        const sportName = card.querySelector('h3').textContent.toLowerCase();
+                        if (sportName.includes(searchTerm)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+            
+            if (searchOfficial) {
+                searchOfficial.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    const cards = document.querySelectorAll('#officialGrid .hover-scale');
+                    cards.forEach(card => {
+                        const sportName = card.querySelector('h3').textContent.toLowerCase();
+                        if (sportName.includes(searchTerm)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+        }
+
+        // Countdown timer
+        function updateCountdown() {
+            const targetDate = new Date('2025-10-23T09:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }
+        }
+
+        // Populate schedule table
+        function populateScheduleTable() {
+            const scheduleTableBody = document.getElementById('scheduleTableBody');
+            if (!scheduleTableBody) return;
+            
+            // Generate schedule data from sports data
+            const scheduleData = [];
+            
+            sportsData.forEach(sport => {
+                const dateRange = sport.date;
+                const dates = parseDateRange(dateRange);
+                
+                dates.forEach((date, index) => {
+                    const time = generateRandomTime();
+                    const status = getEventStatus(date);
+                    const eventType = getEventType(index, dates.length);
+                    
+                    scheduleData.push({
+                        date: formatDate(date),
+                        time: time,
+                        sport: sport.name,
+                        event: eventType,
+                        venue: sport.venue,
+                        status: status
+                    });
+                });
+            });
+            
+            // Sort by date
+            scheduleData.sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            // Populate table
+            scheduleTableBody.innerHTML = '';
+            scheduleData.slice(0, 20).forEach(event => { // Show first 20 events
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${event.date}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${event.time}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${event.sport}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${event.event}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${event.venue}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${event.status}</td>
+                `;
+                scheduleTableBody.appendChild(row);
+            });
+        }
+        
+        function parseDateRange(dateRange) {
+            const dates = [];
+            const today = new Date('2025-10-30'); // Current date in the event
+            
+            if (dateRange.includes('–')) {
+                const parts = dateRange.split('–');
+                const startStr = parts[0].trim();
+                const endStr = parts[1].trim();
+                
+                // Parse start date
+                let startDate, endDate;
+                
+                if (startStr.includes('Oktober')) {
+                    const day = parseInt(startStr.split(' ')[0]);
+                    startDate = new Date(2025, 9, day); // October is month 9
+                } else if (startStr.includes('November')) {
+                    const day = parseInt(startStr.split(' ')[0]);
+                    startDate = new Date(2025, 10, day); // November is month 10
+                } else {
+                    const day = parseInt(startStr);
+                    startDate = new Date(2025, 9, day); // Default to October
+                }
+                
+                // Parse end date
+                if (endStr.includes('Oktober')) {
+                    const day = parseInt(endStr.split(' ')[0]);
+                    endDate = new Date(2025, 9, day);
+                } else if (endStr.includes('November')) {
+                    const day = parseInt(endStr.split(' ')[0]);
+                    endDate = new Date(2025, 10, day);
+                } else {
+                    const day = parseInt(endStr);
+                    // Determine month based on start date
+                    if (startDate.getMonth() === 9 && day < startDate.getDate()) {
+                        endDate = new Date(2025, 10, day); // November
+                    } else {
+                        endDate = new Date(2025, startDate.getMonth(), day);
+                    }
+                }
+                
+                // Generate dates in range
+                const currentDate = new Date(startDate);
+                while (currentDate <= endDate) {
+                    dates.push(new Date(currentDate));
+                    currentDate.setDate(currentDate.getDate() + 1);
+                }
+            } else {
+                // Single date
+                if (dateRange.includes('Oktober')) {
+                    const day = parseInt(dateRange.split(' ')[0]);
+                    dates.push(new Date(2025, 9, day));
+                } else if (dateRange.includes('November')) {
+                    const day = parseInt(dateRange.split(' ')[0]);
+                    dates.push(new Date(2025, 10, day));
+                }
+            }
+            
+            return dates;
+        }
+        
+        function formatDate(date) {
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+            return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+        }
+        
+        function generateRandomTime() {
+            const hours = [8, 9, 10, 13, 14, 15, 16, 19, 20];
+            const minutes = ['00', '30'];
+            const hour = hours[Math.floor(Math.random() * hours.length)];
+            const minute = minutes[Math.floor(Math.random() * minutes.length)];
+            return `${hour}:${minute}`;
+        }
+        
+        function getEventStatus(date) {
+            const today = new Date(); // Use actual current date
+            const eventDate = new Date(date);
+            
+            // Reset time to compare only dates
+            today.setHours(0, 0, 0, 0);
+            eventDate.setHours(0, 0, 0, 0);
+            
+            if (eventDate.getTime() === today.getTime()) {
+                const statuses = [
+                    '<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">🔴 LIVE</span>',
+                    '<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Berlangsung</span>',
+                    '<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Akan Datang</span>'
+                ];
+                return statuses[Math.floor(Math.random() * statuses.length)];
+            } else if (eventDate < today) {
+                return '<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">Selesai</span>';
+            } else {
+                return '<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Akan Datang</span>';
+            }
+        }
+        
+        function getEventType(index, totalDays) {
+            const eventTypes = [
+                'Penyisihan Grup A', 'Penyisihan Grup B', 'Penyisihan Grup C',
+                'Babak 16 Besar', 'Perempat Final', 'Semifinal', 'Final',
+                'Kualifikasi', 'Babak Penyisihan', 'Final'
+            ];
+            
+            if (totalDays === 1) return 'Final';
+            if (index === totalDays - 1) return 'Final';
+            if (index === totalDays - 2) return 'Semifinal';
+            if (index === totalDays - 3) return 'Perempat Final';
+            
+            return eventTypes[Math.floor(Math.random() * 4)]; // Random early round
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            setupSearch();
+            
+            // Initialize tab functionality
+            showTab('beranda');
+            
+            // Close modal when clicking outside
+            document.getElementById('venueModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+        });
+
+        // Sports data
+        const sportsData = [
+            { name: 'Tinju', venue: 'Gedung Serba Guna RTH Kijang Mas', icon: '🥊', date: '26 – 30 Oktober', maps: 'https://maps.google.com/?q=RTH+Kijang+Mas+Tapin' },
+            { name: 'Muaythai', venue: 'Gedung Serba Guna RTH Kijang Mas', icon: '🥋', date: '9 – 13 November', maps: 'https://maps.google.com/?q=RTH+Kijang+Mas+Tapin' },
+            { name: 'Kick Boxing', venue: 'Gedung Serba Guna Desa Panggung', icon: '🥊', date: '26 – 31 Oktober', maps: 'https://maps.google.com/?q=Desa+Panggung+Tapin' },
+            { name: 'Teq Ball', venue: 'Gedung Serba Guna Desa Panggung', icon: '⚽', date: '10 – 13 November', maps: 'https://maps.google.com/?q=Desa+Panggung+Tapin' },
+            { name: 'Panahan', venue: 'RTH Kijang Mas Permai', icon: '🏹', date: '26 – 29 Oktober', maps: 'https://maps.google.com/?q=RTH+Kijang+Mas+Permai+Tapin' },
+            { name: 'Panjat Tebing', venue: 'RTH Kijang Mas Permai', icon: '🧗', date: '26 – 30 Oktober', maps: 'https://maps.google.com/?q=RTH+Kijang+Mas+Permai+Tapin' },
+            { name: 'Tenis Lapangan', venue: 'Lapangan Tenis Pemuda', icon: '🎾', date: '27 Oktober – 6 November', maps: 'https://maps.google.com/?q=Lapangan+Tenis+Pemuda+Tapin' },
+            { name: 'Hapkido', venue: 'Lapangan Tenis Matah', icon: '🥋', date: '10 – 13 November', maps: 'https://maps.google.com/?q=Lapangan+Tenis+Matah+Tapin' },
+            { name: 'Taekwondo', venue: 'Lapangan Tenis Indoor Pemuda', icon: '🥋', date: '27 Oktober – 1 November', maps: 'https://maps.google.com/?q=Lapangan+Tenis+Indoor+Pemuda+Tapin' },
+            { name: 'Tenis Meja', venue: 'Lapangan Tenis Indoor Pemuda', icon: '🏓', date: '4 – 10 November', maps: 'https://maps.google.com/?q=Lapangan+Tenis+Indoor+Pemuda+Tapin' },
+            { name: 'Wushu', venue: 'Gedung Logistik KPU Tanah Laut', icon: '🥋', date: '27 – 30 Oktober', maps: 'https://maps.google.com/?q=Gedung+Logistik+KPU+Tanah+Laut' },
+            { name: 'Barongsai', venue: 'Gedung Logistik KPU Tanah Laut', icon: '🐉', date: '3 – 4 November', maps: 'https://maps.google.com/?q=Gedung+Logistik+KPU+Tanah+Laut' },
+            { name: 'Menembak Indoor', venue: 'Gedung Logistik KPU Tanah Laut', icon: '🎯', date: '10 – 12 November', maps: 'https://maps.google.com/?q=Gedung+Logistik+KPU+Tanah+Laut' },
+            { name: 'Menembak Outdoor', venue: 'Lapangan Pertasi Kencana Outdoor', icon: '🎯', date: '5 – 8 November', maps: 'https://maps.google.com/?q=Lapangan+Pertasi+Kencana+Tapin' },
+            { name: 'Pencak Silat', venue: 'Gedung Paraduta Kodim 1009 Pelaihari', icon: '🥋', date: '28 – 31 Oktober', maps: 'https://maps.google.com/?q=Gedung+Paraduta+Kodim+1009+Pelaihari' },
+            { name: 'Karate', venue: 'Gedung Paraduta Kodim 1009 Pelaihari', icon: '🥋', date: '3 – 6 November', maps: 'https://maps.google.com/?q=Gedung+Paraduta+Kodim+1009+Pelaihari' },
+            { name: 'Kempo', venue: 'Gedung Paraduta Kodim 1009 Pelaihari', icon: '🥋', date: '10 – 13 November', maps: 'https://maps.google.com/?q=Gedung+Paraduta+Kodim+1009+Pelaihari' },
+            { name: 'Bulu Tangkis', venue: 'GOR Tuntung Pandang', icon: '🏸', date: '28 – 31 Oktober', maps: 'https://maps.google.com/?q=GOR+Tuntung+Pandang+Pelaihari' },
+            { name: 'Bola Volly Indoor', venue: 'GOR Tuntung Pandang', icon: '🏐', date: '6 – 13 November', maps: 'https://maps.google.com/?q=GOR+Tuntung+Pandang+Pelaihari' },
+            { name: 'Balap Sepeda', venue: 'Sepeda Gunung Kayangan', icon: '🚴', date: '28 Oktober – 2 November', maps: 'https://maps.google.com/?q=Sepeda+Gunung+Kayangan+Tapin' },
+            { name: 'Catur', venue: 'Aula Kecamatan Pelaihari', icon: '♟️', date: '29 Oktober – 5 November', maps: 'https://maps.google.com/?q=Aula+Kecamatan+Pelaihari' },
+            { name: 'Baseball/Softball', venue: 'Lapangan Bola SMK PP Pelaihari', icon: '⚾', date: '29 Oktober – 8 November', maps: 'https://maps.google.com/?q=Lapangan+Bola+SMK+PP+Pelaihari' },
+            { name: 'Bola Basket', venue: 'Lapangan Basket RTH Kijangmas Permai', icon: '🏀', date: '29 Oktober – 10 November', maps: 'https://maps.google.com/?q=Lapangan+Basket+RTH+Kijangmas+Permai' },
+            { name: 'Senam', venue: 'Gedung Serba Guna Desa Panggung', icon: '🤸', date: '30 Oktober – 3 November', maps: 'https://maps.google.com/?q=Gedung+Serba+Guna+Desa+Panggung' },
+            { name: 'IODI', venue: 'Aula Kecamatan Pelaihari', icon: '🎭', date: '6 – 9 November', maps: 'https://maps.google.com/?q=Aula+Kecamatan+Pelaihari' },
+            { name: 'Bridge', venue: 'Aula Kecamatan Pelaihari', icon: '🃏', date: '12 – 13 November', maps: 'https://maps.google.com/?q=Aula+Kecamatan+Pelaihari' },
+            { name: 'E-Sport', venue: 'Gedung Serba Guna RTH Kijang Mas', icon: '🎮', date: '4 – 7 November', maps: 'https://maps.google.com/?q=RTH+Kijang+Mas+Tapin' },
+            { name: 'Binaraga', venue: 'Gedung Serba Guna RTH Kijang Mas', icon: '💪', date: '7 – 8 November', maps: 'https://maps.google.com/?q=RTH+Kijang+Mas+Tapin' },
+            { name: 'Angkat Besi', venue: 'Gedung Serba Guna RTH Kijang Mas', icon: '🏋️', date: '31 Oktober – 3 November', maps: 'https://maps.google.com/?q=RTH+Kijang+Mas+Tapin' },
+            { name: 'Angkat Berat', venue: 'Gedung Serba Guna RTH Kijang Mas', icon: '🏋️', date: '1 – 4 November', maps: 'https://maps.google.com/?q=RTH+Kijang+Mas+Tapin' },
+            { name: 'Judo', venue: 'Gedung Paraduta Kodim 1009 Pelaihari', icon: '🥋', date: '7 – 10 November', maps: 'https://maps.google.com/?q=Gedung+Paraduta+Kodim+1009+Pelaihari' },
+            { name: 'Jujitsu', venue: 'Gedung Paraduta Kodim 1009 Pelaihari', icon: '🥋', date: '14 – 15 November', maps: 'https://maps.google.com/?q=Gedung+Paraduta+Kodim+1009+Pelaihari' },
+            { name: 'Gate Ball', venue: 'RTH Kijang Mas Permai', icon: '🏑', date: '31 Oktober – 3 November', maps: 'https://maps.google.com/?q=RTH+Kijang+Mas+Permai+Tapin' },
+            { name: 'Renang', venue: 'Kolam Renang Tirta Kencana Pelaihari', icon: '🏊', date: '3 – 6 November', maps: 'https://maps.google.com/?q=Kolam+Renang+Tirta+Kencana+Pelaihari' },
+            { name: 'Sepak Takraw', venue: 'GOR Tuntung Pandang', icon: '🏐', date: '1 – 5 November', maps: 'https://maps.google.com/?q=GOR+Tuntung+Pandang+Pelaihari' },
+            { name: 'Billiard', venue: 'Gedung Serba Guna Desa Panggung', icon: '🎱', date: '4 – 7 November', maps: 'https://maps.google.com/?q=Gedung+Serba+Guna+Desa+Panggung' },
+            { name: 'Balap Motor', venue: 'Sirkuit Balap Motor Kayangan', icon: '🏍️', date: '8 – 10 November', maps: 'https://maps.google.com/?q=Sirkuit+Balap+Motor+Kayangan+Tapin' },
+            { name: 'Kurash', venue: 'Gedung Paraduta Kodim 1009 Pelaihari', icon: '🤼', date: '11 – 12 November', maps: 'https://maps.google.com/?q=Gedung+Paraduta+Kodim+1009+Pelaihari' },
+            { name: 'Anggar', venue: 'Gedung Logistik KPU Tanah Laut', icon: '🤺', date: '5 – 8 November', maps: 'https://maps.google.com/?q=Gedung+Logistik+KPU+Tanah+Laut' },
+            { name: 'Petanque', venue: 'RTH Kijang Mas Permai', icon: '⚪', date: '4 – 7 November', maps: 'https://maps.google.com/?q=RTH+Kijang+Mas+Permai+Tapin' },
+            { name: 'Drumband', venue: 'Stadion Pertasi Kencana', icon: '🥁', date: '9 – 10 November', maps: 'https://maps.google.com/?q=Stadion+Pertasi+Kencana+Tapin' },
+            { name: 'Atletik', venue: 'Stadion Pertasi Kencana', icon: '🏃', date: '3 – 6 November', maps: 'https://maps.google.com/?q=Stadion+Pertasi+Kencana+Tapin' },
+            { name: 'Sepakbola Putra', venue: 'Lapangan Sepak Bola Karang Taruna', icon: '⚽', date: '5 – 12 November', maps: 'https://maps.google.com/?q=Lapangan+Sepak+Bola+Karang+Taruna+Tapin' },
+            { name: 'Sepakbola Putri', venue: 'Lapangan Bola Pinang Berbaris', icon: '⚽', date: '7 – 13 November', maps: 'https://maps.google.com/?q=Lapangan+Bola+Pinang+Berbaris+Tapin' },
+            { name: 'Skate Board', venue: 'RTH Hasan Basri Pelaihari', icon: '🛹', date: '5 – 8 November', maps: 'https://maps.google.com/?q=RTH+Hasan+Basri+Pelaihari' },
+            { name: 'Sepatu Roda', venue: 'RTH Hasan Basri Pelaihari', icon: '🛼', date: '9 – 12 November', maps: 'https://maps.google.com/?q=RTH+Hasan+Basri+Pelaihari' },
+            { name: 'Pickle Ball', venue: 'Sport Center Perdana', icon: '🏓', date: '6 – 9 November', maps: 'https://maps.google.com/?q=Sport+Center+Perdana+Tapin' },
+            { name: 'MMA', venue: 'Gedung Serba Guna Desa Bumi Jaya', icon: '🥊', date: '7 – 10 November', maps: 'https://maps.google.com/?q=Gedung+Serba+Guna+Desa+Bumi+Jaya' },
+            { name: 'Paralayang', venue: 'Gunung Karatun Pelaihari', icon: '🪂', date: '8 – 10 November', maps: 'https://maps.google.com/?q=Gunung+Karatun+Pelaihari' },
+            { name: 'Arung Jeram', venue: 'Sungai Tapin', icon: '🚣', date: '11 – 12 November', maps: 'https://maps.google.com/?q=Sungai+Tapin' },
+            { name: 'Bola Tangan', venue: 'GOR Tuntung Pandang', icon: '🤾', date: '14 – 15 November', maps: 'https://maps.google.com/?q=GOR+Tuntung+Pandang+Pelaihari' },
+            { name: 'Futsal', venue: 'Gedung Futsal Bati Bati', icon: '⚽', date: '2 – 8 November', maps: 'https://maps.google.com/?q=Gedung+Futsal+Bati+Bati' },
+            { name: 'Dayung', venue: 'Danau Seran', icon: '🚣', date: '13 – 14 November', maps: 'https://maps.google.com/?q=Danau+Seran+Tapin' },
+            { name: 'Volly Pasir', venue: 'Pantai Batakan Baru', icon: '🏐', date: '8 – 11 November', maps: 'https://maps.google.com/?q=Pantai+Batakan+Baru' },
+            { name: 'Ski Air', venue: 'Pantai Batakan Baru', icon: '🎿', date: '9 – 11 November', maps: 'https://maps.google.com/?q=Pantai+Batakan+Baru' },
+            { name: 'Berkuda Memanah', venue: 'Lapangan Berkuda Kayangan', icon: '🏇', date: '12 – 13 November', maps: 'https://maps.google.com/?q=Lapangan+Berkuda+Kayangan+Tapin' },
+            { name: 'Renang Terbuka', venue: 'Pantai Takisung', icon: '🏊', date: '7 – 8 November', maps: 'https://maps.google.com/?q=Pantai+Takisung' },
+            { name: 'Bola Tangan Pasir', venue: 'Pantai Takisung', icon: '🤾', date: '10 – 11 November', maps: 'https://maps.google.com/?q=Pantai+Takisung' },
+            { name: 'Triathlon', venue: 'Pantai Takisung', icon: '🏃‍♂️', date: '9 – 10 November', maps: 'https://maps.google.com/?q=Pantai+Takisung' },
+            { name: 'Aeromodeling', venue: 'Lapangan Terbang Kayangan', icon: '✈️', date: '13 – 14 November', maps: 'https://maps.google.com/?q=Lapangan+Terbang+Kayangan+Tapin' },
+            { name: 'Gulat', venue: 'Gedung Paraduta Kodim 1009 Pelaihari', icon: '🤼', date: '13 – 14 November', maps: 'https://maps.google.com/?q=Gedung+Paraduta+Kodim+1009+Pelaihari' },
+            { name: 'Sambo', venue: 'Gedung Paraduta Kodim 1009 Pelaihari', icon: '🤼', date: '15 November', maps: 'https://maps.google.com/?q=Gedung+Paraduta+Kodim+1009+Pelaihari' },
+            { name: 'Golf', venue: 'Lapangan Golf Swargaloka Banjarbaru', icon: '⛳', date: '2 – 5 November', maps: 'https://maps.google.com/?q=Lapangan+Golf+Swargaloka+Banjarbaru' },
+            { name: 'Loncat Indah', venue: 'Kolam Renang Tirta Kencana Pelaihari', icon: '🤸‍♀️', date: '7 – 8 November', maps: 'https://maps.google.com/?q=Kolam+Renang+Tirta+Kencana+Pelaihari' }
+        ];
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98843f3794d5fd89',t:'MTc1OTQwODYwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
