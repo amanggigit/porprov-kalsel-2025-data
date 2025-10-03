@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "Stadion Demang Lehman",
+    "type": "Stadion",
+    "capacity": 15000,
+    "location": "Jl. Ahmad Yani, Rantau, Tapin",
+    "sports": "Sepak Bola, Atletik, Upacara",
+    "facilities": "Parkir 500 mobil, Toilet 20 unit, Kantin 5 outlet",
+    "contact": "+62 511-41234",
+    "status": "Aktif"
+  },
+  {
+    "id": 2,
+    "name": "GOR Tapin",
+    "type": "GOR",
+    "capacity": 3000,
+    "location": "Jl. Pahlawan, Rantau, Tapin",
+    "sports": "Bulu Tangkis, Voli, Basket",
+    "facilities": "AC, Sound System, Parkir 200 mobil",
+    "contact": "+62 511-41235",
+    "status": "Aktif"
+  },
+  {
+    "id": 3,
+    "name": "Kolam Renang Aquatic Center",
+    "type": "Kolam Renang",
+    "capacity": 1500,
+    "location": "Komplek Olahraga Tapin",
+    "sports": "Renang, Polo Air, Loncat Indah",
+    "facilities": "Kolam Olympic, Tribun, Ruang Ganti",
+    "contact": "+62 511-41236",
+    "status": "Aktif"
+  }
+]
