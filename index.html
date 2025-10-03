@@ -210,6 +210,8 @@
             background: #F8B400;
             color: #00204A;
         }
+        
+
     </style>
 </head>
 <body class="bg-gray-50">
@@ -679,6 +681,8 @@
         </div>
     </div>
 
+
+
     <!-- Footer -->
     <footer class="gradient-bg text-white py-12">
         <div class="container mx-auto px-4">
@@ -765,79 +769,127 @@
     </div>
 
     <script>
-        // Sample data - in real implementation, this would come from API or admin panel
+        // Synchronized data arrays - all data properly structured for sync
         const newsData = [
             {
                 id: 1,
                 title: "🎉 Pembukaan PORPROV Kalsel 2025 Meriah di Stadion Demang Lehman",
                 category: "acara",
-                content: "Upacara pembukaan PORPROV Kalimantan Selatan 2025 berlangsung meriah di Stadion Demang Lehman, Rantau. Gubernur Kalsel H. Sahbirin Noor memberikan sambutan dan secara resmi membuka pesta olahraga terbesar di Kalsel dengan menyalakan api obor. Acara dihadiri 15.000 penonton dan menampilkan parade 13 kabupaten/kota peserta.",
+                content: "Upacara pembukaan PORPROV Kalimantan Selatan 2025 berlangsung meriah di Stadion Demang Lehman, Rantau. Gubernur Kalsel H. Sahbirin Noor memberikan sambutan dan secara resmi membuka pesta olahraga terbesar di Kalsel dengan menyalakan api obor. Acara dihadiri 15.000 penonton dan menampilkan parade 13 kabupaten/kota peserta dengan kostum tradisional yang memukau. Pertunjukan seni budaya Banjar dan tarian kolosal melibatkan 1.000 penari memeriahkan malam pembukaan yang disiarkan langsung ke seluruh Indonesia.",
                 date: "2025-01-15",
                 image: "🏟️",
-                author: "Tim Media PORPROV"
+                author: "Tim Media PORPROV",
+                status: "published",
+                views: 15420,
+                likes: 892
             },
             {
                 id: 2,
                 title: "🏊‍♂️ Atlet Renang Tapin Pecahkan Rekor Kalsel di Nomor 100m Gaya Bebas",
                 category: "hasil",
-                content: "Muhammad Rizki Pratama (17) dari Kabupaten Tapin berhasil memecahkan rekor Kalimantan Selatan untuk nomor 100m gaya bebas putra dengan catatan waktu 52.34 detik, memecahkan rekor lama 53.12 detik. Prestasi gemilang ini sekaligus mengantarkan Tapin meraih medali emas pertama di cabang renang.",
+                content: "Muhammad Rizki Pratama (17) dari Kabupaten Tapin berhasil memecahkan rekor Kalimantan Selatan untuk nomor 100m gaya bebas putra dengan catatan waktu 52.34 detik, memecahkan rekor lama 53.12 detik yang telah bertahan selama 8 tahun. Prestasi gemilang ini sekaligus mengantarkan Tapin meraih medali emas pertama di cabang renang. Rizki yang merupakan siswa SMAN 1 Rantau ini telah berlatih selama 6 tahun di bawah bimbingan pelatih nasional.",
                 date: "2025-01-16",
                 image: "🏊‍♂️",
-                author: "Reporter Olahraga"
+                author: "Reporter Olahraga",
+                status: "published",
+                views: 8765,
+                likes: 543
             },
             {
                 id: 3,
                 title: "🥇 Klasemen Sementara Hari Ketiga: Tapin Kokoh di Puncak",
                 category: "hasil",
-                content: "Memasuki hari ketiga pertandingan, Kabupaten Tapin semakin kokoh memimpin klasemen sementara dengan koleksi 15 emas, 12 perak, dan 8 perunggu (total 35 medali). Banjarmasin di posisi kedua dengan 12 emas, 10 perak, 14 perunggu. Persaingan ketat terjadi untuk posisi ketiga antara Banjar dan Barito Kuala.",
+                content: "Memasuki hari ketiga pertandingan, Kabupaten Tapin semakin kokoh memimpin klasemen sementara dengan koleksi 18 emas, 15 perak, dan 12 perunggu (total 45 medali). Banjarmasin di posisi kedua dengan 16 emas, 14 perak, 18 perunggu (total 48 medali). Persaingan ketat terjadi untuk posisi ketiga antara Banjar (14 emas) dan Barito Kuala (12 emas). Tapin unggul dalam cabang renang, atletik, dan sepak bola, sementara Banjarmasin mendominasi bulu tangkis dan bola voli.",
                 date: "2025-01-17",
                 image: "🏆",
-                author: "Tim Statistik PORPROV"
+                author: "Tim Statistik PORPROV",
+                status: "published",
+                views: 12340,
+                likes: 678
             },
             {
                 id: 4,
                 title: "⚽ Drama Adu Penalti Sepak Bola Putra: Tapin Lolos ke Final",
                 category: "hasil",
-                content: "Pertandingan semifinal sepak bola putra antara Tapin vs Banjarmasin berakhir dramatis lewat adu penalti 4-2 setelah bermain imbang 2-2 hingga perpanjangan waktu. Kiper Tapin, Akhmad Fauzi, menjadi pahlawan dengan menggagalkan 2 tendangan penalti lawan. Tapin akan menghadapi Banjar di partai final.",
+                content: "Pertandingan semifinal sepak bola putra antara Tapin vs Banjarmasin berakhir dramatis lewat adu penalti 4-2 setelah bermain imbang 2-2 hingga perpanjangan waktu. Kiper Tapin, Akhmad Fauzi, menjadi pahlawan dengan menggagalkan 2 tendangan penalti lawan. Tapin akan menghadapi Banjar di partai final pada 19 Januari 2025. Pertandingan disaksikan 12.000 penonton yang memadati Stadion Demang Lehman dengan antusiasme tinggi.",
                 date: "2025-01-17",
                 image: "⚽",
-                author: "Koresponden Sepak Bola"
+                author: "Koresponden Sepak Bola",
+                status: "published",
+                views: 9876,
+                likes: 721
             },
             {
                 id: 5,
                 title: "🏸 Ganda Putri Bulu Tangkis Banjarmasin Raih Emas Perdana",
                 category: "hasil",
-                content: "Pasangan ganda putri Banjarmasin, Siti Nurhaliza/Rika Amelia, berhasil meraih medali emas setelah mengalahkan pasangan Tapin 21-18, 19-21, 21-16 dalam pertandingan final yang berlangsung sengit selama 1 jam 15 menit. Ini adalah medali emas pertama Banjarmasin dari cabang bulu tangkis.",
+                content: "Pasangan ganda putri Banjarmasin, Siti Nurhaliza/Rika Amelia, berhasil meraih medali emas setelah mengalahkan pasangan Tapin 21-18, 19-21, 21-16 dalam pertandingan final yang berlangsung sengit selama 1 jam 15 menit. Ini adalah medali emas pertama Banjarmasin dari cabang bulu tangkis. Kedua atlet yang merupakan mahasiswa Universitas Lambung Mangkurat ini telah berpasangan selama 3 tahun dan menargetkan tampil di PON Papua Selatan 2028.",
                 date: "2025-01-18",
                 image: "🏸",
-                author: "Tim Liputan Bulu Tangkis"
+                author: "Tim Liputan Bulu Tangkis",
+                status: "published",
+                views: 6543,
+                likes: 432
             },
             {
                 id: 6,
                 title: "🏃‍♂️ Atlet Atletik Tanah Laut Sabet Tiga Medali Sekaligus",
                 category: "atlet",
-                content: "Muhammad Fadli Rahman, sprinter andalan Tanah Laut, tampil memukau dengan meraih tiga medali sekaligus: emas 100m (10.45 detik), emas 200m (21.23 detik), dan perak 4x100m estafet. Atlet berusia 19 tahun ini menjadi sorotan dan diprediksi akan memperkuat tim Kalsel di PON mendatang.",
+                content: "Muhammad Fadli Rahman, sprinter andalan Tanah Laut, tampil memukau dengan meraih tiga medali sekaligus: emas 100m (10.45 detik), emas 200m (21.23 detik), dan perak 4x100m estafet. Atlet berusia 19 tahun ini menjadi sorotan dan diprediksi akan memperkuat tim Kalsel di PON mendatang. Fadli yang berlatih di Pelatnas Jakarta sejak 2023 ini merupakan harapan besar atletik Kalimantan Selatan untuk meraih prestasi di tingkat nasional.",
                 date: "2025-01-18",
                 image: "🏃‍♂️",
-                author: "Wartawan Atletik"
+                author: "Wartawan Atletik",
+                status: "published",
+                views: 7890,
+                likes: 567
             },
             {
                 id: 7,
                 title: "🏥 Layanan Medis PORPROV Tangani 127 Kasus Cedera Ringan",
                 category: "layanan",
-                content: "Tim medis PORPROV Kalsel 2025 yang dipimpin dr. Hendra Gunawan, Sp.KO telah menangani 127 kasus cedera ringan dan 3 kasus cedera sedang selama 4 hari pertandingan. Sebagian besar kasus adalah kram otot dan lecet. Tidak ada cedera serius yang mengancam jiwa. Posko medis beroperasi 24 jam di setiap venue.",
+                content: "Tim medis PORPROV Kalsel 2025 yang dipimpin dr. Hendra Gunawan, Sp.KO telah menangani 127 kasus cedera ringan dan 3 kasus cedera sedang selama 4 hari pertandingan. Sebagian besar kasus adalah kram otot dan lecet. Tidak ada cedera serius yang mengancam jiwa. Posko medis beroperasi 24 jam di setiap venue dengan 3 ambulans siaga dan 15 tenaga medis berpengalaman. Fasilitas medis dilengkapi peralatan modern termasuk X-ray portable dan ruang fisioterapi.",
                 date: "2025-01-18",
                 image: "🏥",
-                author: "Tim Medis PORPROV"
+                author: "Tim Medis PORPROV",
+                status: "published",
+                views: 4321,
+                likes: 298
             },
             {
                 id: 8,
                 title: "🎯 Panahan Barito Kuala Dominasi dengan 4 Medali Emas",
                 category: "hasil",
-                content: "Tim panahan Barito Kuala tampil dominan dengan meraih 4 dari 6 medali emas yang diperebutkan. Prestasi terbaik diraih Nurul Hikmah (recurve putri individu) dan Ahmad Syahrial (compound putra individu) yang keduanya memecahkan rekor PORPROV. Barito Kuala memantapkan diri sebagai raja panahan Kalsel.",
+                content: "Tim panahan Barito Kuala tampil dominan dengan meraih 4 dari 6 medali emas yang diperebutkan. Prestasi terbaik diraih Nurul Hikmah (recurve putri individu) dan Ahmad Syahrial (compound putra individu) yang keduanya memecahkan rekor PORPROV. Barito Kuala memantapkan diri sebagai raja panahan Kalsel dengan total 4 emas, 1 perak, dan 1 perunggu. Keberhasilan ini tidak lepas dari program pembinaan intensif yang dilakukan sejak 2020.",
                 date: "2025-01-19",
                 image: "🎯",
-                author: "Koresponden Panahan"
+                author: "Koresponden Panahan",
+                status: "published",
+                views: 5678,
+                likes: 389
+            },
+            {
+                id: 9,
+                title: "🏐 Final Bola Voli Putri: Banjarmasin vs Tapin Berlangsung Sengit",
+                category: "hasil",
+                content: "Pertandingan final bola voli putri antara Banjarmasin vs Tapin berlangsung sangat sengit dengan skor akhir 3-2 (25-23, 23-25, 25-21, 22-25, 15-13) untuk kemenangan Banjarmasin. Pertandingan yang berlangsung selama 2 jam 30 menit ini disaksikan penuh oleh 3.000 penonton di GOR Tuntung Pandang. Kapten tim Banjarmasin, Sari Dewi, terpilih sebagai MVP dengan 28 poin.",
+                date: "2025-01-19",
+                image: "🏐",
+                author: "Reporter Bola Voli",
+                status: "published",
+                views: 6789,
+                likes: 445
+            },
+            {
+                id: 10,
+                title: "🥊 Tinju Tapin Borong 3 Emas dari 5 Kelas yang Dipertandingkan",
+                category: "hasil",
+                content: "Tim tinju Kabupaten Tapin meraih prestasi gemilang dengan menyabet 3 medali emas dari 5 kelas yang dipertandingkan. Emas diraih oleh Ahmad Rizal (kelas 60kg), Bayu Pratama (kelas 69kg), dan Hendra Saputra (kelas 81kg). Ketiganya akan mewakili Kalsel di kejuaraan nasional tahun ini. Prestasi ini menjadikan Tapin sebagai kekuatan baru dalam cabang tinju di Kalimantan Selatan.",
+                date: "2025-01-20",
+                image: "🥊",
+                author: "Wartawan Tinju",
+                status: "published",
+                views: 4567,
+                likes: 321
             }
         ];
 
@@ -851,7 +903,9 @@
                 time: "19:00",
                 match: "Upacara Pembukaan PORPROV Kalsel 2025",
                 venue: "Stadion Demang Lehman",
-                status: "Completed"
+                status: "Completed",
+                result: "Sukses - 15.000 penonton hadir",
+                participants: "13 Kabupaten/Kota"
             },
             
             // Hari 2 - 16 Januari 2025
@@ -861,9 +915,11 @@
                 sport: "Renang",
                 date: "2025-01-16",
                 time: "08:00",
-                match: "Kualifikasi 100m Gaya Bebas",
+                match: "Kualifikasi 100m Gaya Bebas Putra",
                 venue: "Aquatic Center Tapin",
-                status: "Completed"
+                status: "Completed",
+                result: "8 perenang lolos final",
+                participants: "32 atlet"
             },
             {
                 id: 3,
@@ -871,9 +927,11 @@
                 sport: "Renang",
                 date: "2025-01-16",
                 time: "09:30",
-                match: "Final 50m Gaya Kupu-kupu",
+                match: "Final 50m Gaya Kupu-kupu Putri",
                 venue: "Aquatic Center Tapin",
-                status: "Completed"
+                status: "Completed",
+                result: "🥇 Sari Dewi (Banjarmasin) - 28.45s",
+                participants: "8 atlet"
             },
             {
                 id: 4,
@@ -881,9 +939,11 @@
                 sport: "Atletik",
                 date: "2025-01-16",
                 time: "15:00",
-                match: "Kualifikasi Lompat Jauh",
+                match: "Kualifikasi Lompat Jauh Putra",
                 venue: "Stadion Demang Lehman",
-                status: "Completed"
+                status: "Completed",
+                result: "12 atlet lolos final",
+                participants: "28 atlet"
             },
             {
                 id: 5,
@@ -893,7 +953,9 @@
                 time: "16:00",
                 match: "Tapin vs Tanah Laut (Grup A)",
                 venue: "Stadion Demang Lehman",
-                status: "Completed"
+                status: "Completed",
+                result: "Tapin 3-1 Tanah Laut",
+                participants: "22 pemain"
             },
             
             // Hari 3 - 17 Januari 2025
@@ -903,9 +965,11 @@
                 sport: "Renang",
                 date: "2025-01-17",
                 time: "08:30",
-                match: "Final 100m Gaya Bebas",
+                match: "Final 100m Gaya Bebas Putra",
                 venue: "Aquatic Center Tapin",
-                status: "Completed"
+                status: "Completed",
+                result: "🥇 M. Rizki Pratama (Tapin) - 52.34s (REKOR)",
+                participants: "8 atlet"
             },
             {
                 id: 7,
@@ -915,7 +979,9 @@
                 time: "09:00",
                 match: "Semifinal Tunggal Putri",
                 venue: "GOR Tuntung Pandang",
-                status: "Completed"
+                status: "Completed",
+                result: "2 finalis ditentukan",
+                participants: "4 atlet"
             },
             {
                 id: 8,
@@ -925,7 +991,9 @@
                 time: "16:00",
                 match: "Final 100m Putra",
                 venue: "Stadion Demang Lehman",
-                status: "Completed"
+                status: "Completed",
+                result: "🥇 M. Fadli Rahman (Tanah Laut) - 10.45s",
+                participants: "8 atlet"
             },
             {
                 id: 9,
@@ -935,7 +1003,9 @@
                 time: "19:00",
                 match: "Semifinal: Tapin vs Banjarmasin",
                 venue: "Stadion Demang Lehman",
-                status: "Completed"
+                status: "Completed",
+                result: "Tapin 4-2 Banjarmasin (adu penalti)",
+                participants: "22 pemain"
             },
             
             // Hari 4 - 18 Januari 2025 (Hari Ini)
@@ -947,7 +1017,9 @@
                 time: "09:00",
                 match: "Final Ganda Putri",
                 venue: "GOR Tuntung Pandang",
-                status: "Live"
+                status: "Completed",
+                result: "🥇 Siti Nurhaliza/Rika Amelia (Banjarmasin)",
+                participants: "4 atlet"
             },
             {
                 id: 11,
@@ -957,7 +1029,9 @@
                 time: "10:00",
                 match: "Final 200m Putra",
                 venue: "Stadion Demang Lehman",
-                status: "Live"
+                status: "Completed",
+                result: "🥇 M. Fadli Rahman (Tanah Laut) - 21.23s",
+                participants: "8 atlet"
             },
             {
                 id: 12,
@@ -967,7 +1041,9 @@
                 time: "14:00",
                 match: "Semifinal: Banjarmasin vs Barito Kuala",
                 venue: "GOR Tuntung Pandang",
-                status: "Scheduled"
+                status: "Live",
+                result: "Set 1: 25-23 (Banjarmasin)",
+                participants: "12 atlet"
             },
             {
                 id: 13,
@@ -977,7 +1053,9 @@
                 time: "16:00",
                 match: "Final: Banjarmasin vs Tapin",
                 venue: "GOR Tuntung Pandang",
-                status: "Scheduled"
+                status: "Scheduled",
+                result: "-",
+                participants: "10 atlet"
             },
             {
                 id: 14,
@@ -987,7 +1065,9 @@
                 time: "19:00",
                 match: "Final Ganda Campuran",
                 venue: "Hall Serbaguna Tapin",
-                status: "Scheduled"
+                status: "Scheduled",
+                result: "-",
+                participants: "4 atlet"
             },
             
             // Hari 5 - 19 Januari 2025
@@ -999,7 +1079,9 @@
                 time: "08:00",
                 match: "Final Recurve Individu Putra",
                 venue: "Lapangan Panahan Tapin",
-                status: "Scheduled"
+                status: "Scheduled",
+                result: "-",
+                participants: "8 atlet"
             },
             {
                 id: 16,
@@ -1009,7 +1091,9 @@
                 time: "10:00",
                 match: "Final Compound Individu Putri",
                 venue: "Lapangan Panahan Tapin",
-                status: "Scheduled"
+                status: "Scheduled",
+                result: "-",
+                participants: "8 atlet"
             },
             {
                 id: 17,
@@ -1017,9 +1101,11 @@
                 sport: "Karate",
                 date: "2025-01-19",
                 time: "13:00",
-                match: "Final Kumite -67kg",
+                match: "Final Kumite -67kg Putra",
                 venue: "Arena Pencak Silat Tapin",
-                status: "Scheduled"
+                status: "Scheduled",
+                result: "-",
+                participants: "4 atlet"
             },
             {
                 id: 18,
@@ -1029,7 +1115,9 @@
                 time: "16:00",
                 match: "Final: Tapin vs Banjar",
                 venue: "Stadion Demang Lehman",
-                status: "Scheduled"
+                status: "Scheduled",
+                result: "-",
+                participants: "22 pemain"
             },
             {
                 id: 19,
@@ -1037,9 +1125,11 @@
                 sport: "Bola Voli",
                 date: "2025-01-19",
                 time: "19:00",
-                match: "Final Putri",
+                match: "Final Putri: Banjarmasin vs Tapin",
                 venue: "GOR Tuntung Pandang",
-                status: "Scheduled"
+                status: "Scheduled",
+                result: "-",
+                participants: "12 atlet"
             },
             
             // Hari 6 - 20 Januari 2025
@@ -1051,7 +1141,9 @@
                 time: "09:00",
                 match: "Final Futsal Putra",
                 venue: "GOR Tuntung Pandang",
-                status: "Scheduled"
+                status: "Scheduled",
+                result: "-",
+                participants: "10 pemain"
             },
             {
                 id: 21,
@@ -1061,7 +1153,9 @@
                 time: "14:00",
                 match: "Final Kelas C (65-70kg)",
                 venue: "Arena Pencak Silat Tapin",
-                status: "Scheduled"
+                status: "Scheduled",
+                result: "-",
+                participants: "4 atlet"
             },
             {
                 id: 22,
@@ -1071,19 +1165,35 @@
                 time: "16:00",
                 match: "Final Beregu Campuran",
                 venue: "Hall Serbaguna Tapin",
-                status: "Scheduled"
+                status: "Scheduled",
+                result: "-",
+                participants: "8 pemain"
+            },
+            {
+                id: 23,
+                category: "Putra",
+                sport: "Tinju",
+                date: "2025-01-20",
+                time: "19:00",
+                match: "Final Kelas 69kg Putra",
+                venue: "Arena Pencak Silat Tapin",
+                status: "Scheduled",
+                result: "-",
+                participants: "2 atlet"
             },
             
             // Hari 7 - 21 Januari 2025 (Penutupan)
             {
-                id: 23,
+                id: 24,
                 category: "Upacara",
                 sport: "Penutupan",
                 date: "2025-01-21",
                 time: "19:00",
                 match: "Upacara Penutupan PORPROV Kalsel 2025",
                 venue: "Stadion Demang Lehman",
-                status: "Scheduled"
+                status: "Scheduled",
+                result: "-",
+                participants: "Semua kontingen"
             }
         ];
 
@@ -2587,6 +2697,8 @@
             document.getElementById('statServices').textContent = serviceData.length;
         }
 
+
+
         // Close modals when clicking outside
         window.onclick = function(event) {
             const newsModal = document.getElementById('newsModal');
@@ -2600,5 +2712,5 @@
             }
         }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'988a614db2627e32',t:'MTc1OTQ3MjkxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'988ab2e8a35381c2',t:'MTc1OTQ3NjI1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
