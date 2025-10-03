@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "name": "Stadion Demang Lehman",
+    "type": "Stadion",
+    "capacity": 15000,
+    "location": "Jl. Ahmad Yani, Rantau, Tapin",
+    "sports": "Sepak Bola, Atletik, Upacara Pembukaan/Penutupan",
+    "facilities": "Parkir 500 mobil, Toilet 20 unit, Kantin 5 outlet, Sound system profesional, Ruang VIP, Tribun bertingkat, Ruang pers, Medical center",
+    "contact": "+62 511-41234",
+    "status": "Aktif"
+  },
+  {
+    "id": 2,
+    "name": "GOR Tuntung Pandang",
+    "type": "GOR",
+    "capacity": 3000,
+    "location": "Jl. Tuntung Pandang, Rantau, Tapin",
+    "sports": "Bola Voli, Bulu Tangkis, Basket, Futsal",
+    "facilities": "AC central, Parkir 200 mobil, Toilet 12 unit, Kantin 2 outlet, Ruang ganti 8 unit, Tribun telescopic, Lighting LED",
+    "contact": "+62 511-41235",
+    "status": "Aktif"
+  },
+  {
+    "id": 3,
+    "name": "Aquatic Center Tapin",
+    "type": "Kolam Renang",
+    "capacity": 1500,
+    "location": "Kompleks Olahraga Tapin, Rantau",
+    "sports": "Renang, Polo Air, Loncat Indah",
+    "facilities": "Kolam Olympic 50m x 25m, Kolam loncat indah, Kolam pemanasan, Tribun 1500 kursi, Ruang ganti 12 unit, Cafeteria, Timing system elektronik",
+    "contact": "+62 511-41236",
+    "status": "Aktif"
+  },
+  {
+    "id": 4,
+    "name": "Arena Pencak Silat Tapin",
+    "type": "Arena",
+    "capacity": 800,
+    "location": "Gedung Serbaguna Tapin, Rantau",
+    "sports": "Pencak Silat, Karate, Taekwondo, Judo, Gulat, Tinju",
+    "facilities": "Matras profesional 12m x 12m, Sound system, Tribun portable, Ruang ganti 6 unit, Medical corner, Ruang wasit",
+    "contact": "+62 511-41237",
+    "status": "Aktif"
+  },
+  {
+    "id": 5,
+    "name": "Hall Serbaguna Tapin",
+    "type": "Hall",
+    "capacity": 1200,
+    "location": "Kompleks Perkantoran Tapin, Rantau",
+    "sports": "Tenis Meja, Catur, Bridge, Billiard",
+    "facilities": "AC central, 20 meja tenis meja, Ruang catur ber-AC, Area billiard, Parkir 150 mobil, Kantin, WiFi gratis",
+    "contact": "+62 511-41238",
+    "status": "Aktif"
+  },
+  {
+    "id": 6,
+    "name": "Lapangan Panahan Tapin",
+    "type": "Lapangan",
+    "capacity": 500,
+    "location": "Taman Kota Rantau, Tapin",
+    "sports": "Panahan (Recurve & Compound)",
+    "facilities": "Target range 70m, Tribun 500 kursi, Ruang peralatan, Scoring system elektronik, Shelter cuaca",
+    "contact": "+62 511-41239",
+    "status": "Aktif"
+  },
+  {
+    "id": 7,
+    "name": "Lapangan Tenis Tapin",
+    "type": "Lapangan",
+    "capacity": 400,
+    "location": "Kompleks Olahraga Tapin, Rantau",
+    "sports": "Tenis Lapangan",
+    "facilities": "4 lapangan hard court, Lighting malam, Tribun 400 kursi, Ruang ganti, Pro shop",
+    "contact": "+62 511-41240",
+    "status": "Aktif"
+  },
+  {
+    "id": 8,
+    "name": "Shooting Range Tapin",
+    "type": "Arena",
+    "capacity": 200,
+    "location": "Kawasan Industri Tapin, Rantau",
+    "sports": "Menembak (Air Rifle & Air Pistol)",
+    "facilities": "10 lane menembak, Electronic scoring, Ruang senjata, Safety equipment, Tribun 200 kursi",
+    "contact": "+62 511-41241",
+    "status": "Aktif"
+  },
+  {
+    "id": 9,
+    "name": "Lapangan Sepak Takraw Tapin",
+    "type": "Lapangan",
+    "capacity": 600,
+    "location": "Kompleks Olahraga Tapin, Rantau",
+    "sports": "Sepak Takraw",
+    "facilities": "2 lapangan outdoor, Tribun 600 kursi, Lighting LED, Ruang ganti, Medical post",
+    "contact": "+62 511-41242",
+    "status": "Aktif"
+  },
+  {
+    "id": 10,
+    "name": "Gym Angkat Besi Tapin",
+    "type": "GOR",
+    "capacity": 300,
+    "location": "Gedung Olahraga Tapin, Rantau",
+    "sports": "Angkat Besi, Angkat Berat",
+    "facilities": "Platform competition grade, Barbel set Olympic, Tribun 300 kursi, AC, Sound system, Ruang doping test",
+    "contact": "+62 511-41243",
+    "status": "Aktif"
+  },
+  {
+    "id": 11,
+    "name": "Arena Senam Tapin",
+    "type": "Arena",
+    "capacity": 800,
+    "location": "GOR Tuntung Pandang (Lantai 2)",
+    "sports": "Senam Artistik, Senam Ritmik",
+    "facilities": "Matras spring floor, Palang sejajar, Kuda pelana, Gelang-gelang, Tribun 800 kursi, Ruang pemanasan",
+    "contact": "+62 511-41244",
+    "status": "Aktif"
+  },
+  {
+    "id": 12,
+    "name": "Bowling Center Tapin",
+    "type": "Arena",
+    "capacity": 200,
+    "location": "Mall Tapin Plaza, Rantau",
+    "sports": "Bowling",
+    "facilities": "8 lane bowling, Automatic scoring, Tribun 200 kursi, Cafeteria, Rental shoes, Pro shop",
+    "contact": "+62 511-41245",
+    "status": "Aktif"
+  },
+  {
+    "id": 13,
+    "name": "Danau Tapin",
+    "type": "Venue Outdoor",
+    "capacity": 1000,
+    "location": "Danau Tapin, Rantau",
+    "sports": "Dayung, Kano, Perahu Naga",
+    "facilities": "Lintasan 2000m, Tribun portable 1000 kursi, Dermaga start/finish, Timing system, Boat storage, Medical boat",
+    "contact": "+62 511-41246",
+    "status": "Aktif"
+  },
+  {
+    "id": 14,
+    "name": "Wall Climbing Tapin",
+    "type": "Arena",
+    "capacity": 300,
+    "location": "Gedung Pemuda Tapin, Rantau",
+    "sports": "Panjat Tebing (Sport Climbing)",
+    "facilities": "Dinding panjat 15m, Speed climbing, Bouldering area, Safety equipment, Tribun 300 kursi, Ruang ganti",
+    "contact": "+62 511-41247",
+    "status": "Aktif"
+  },
+  {
+    "id": 15,
+    "name": "Velodrome Tapin",
+    "type": "Velodrome",
+    "capacity": 2000,
+    "location": "Kawasan Olahraga Tapin, Rantau",
+    "sports": "Sepeda (Track Cycling)",
+    "facilities": "Track 250m, Tribun 2000 kursi, Timing system, Bike storage, Workshop area, Medical center",
+    "contact": "+62 511-41248",
+    "status": "Aktif"
+  }
+]
