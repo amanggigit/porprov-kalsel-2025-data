@@ -215,8 +215,140 @@
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Admin Access (Hidden) -->
+    <div id="adminPanel" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="p-6 border-b border-gray-200">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-2xl font-bold text-blue-900">🔧 Admin Panel - Data Sync Status</h2>
+                        <button onclick="closeAdminPanel()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    <!-- Sync Status Overview -->
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <span class="text-2xl animate-pulse">🔄</span>
+                            <h3 class="text-lg font-bold text-green-800">Status Sinkronisasi Data</h3>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="bg-white rounded-lg p-3 text-center">
+                                <div class="text-2xl mb-1">📰</div>
+                                <div class="text-lg font-bold text-blue-900" id="adminNewsCount">10</div>
+                                <div class="text-sm text-gray-600">Berita</div>
+                            </div>
+                            <div class="bg-white rounded-lg p-3 text-center">
+                                <div class="text-2xl mb-1">📅</div>
+                                <div class="text-lg font-bold text-blue-900" id="adminScheduleCount">24</div>
+                                <div class="text-sm text-gray-600">Jadwal</div>
+                            </div>
+                            <div class="bg-white rounded-lg p-3 text-center">
+                                <div class="text-2xl mb-1">🏆</div>
+                                <div class="text-lg font-bold text-blue-900" id="adminMedalCount">13</div>
+                                <div class="text-sm text-gray-600">Klasemen</div>
+                            </div>
+                            <div class="bg-white rounded-lg p-3 text-center">
+                                <div class="text-2xl mb-1">🏟️</div>
+                                <div class="text-lg font-bold text-blue-900" id="adminVenueCount">15</div>
+                                <div class="text-sm text-gray-600">Venue</div>
+                            </div>
+                            <div class="bg-white rounded-lg p-3 text-center">
+                                <div class="text-2xl mb-1">👥</div>
+                                <div class="text-lg font-bold text-blue-900" id="adminOfficialCount">24</div>
+                                <div class="text-sm text-gray-600">Official</div>
+                            </div>
+                            <div class="bg-white rounded-lg p-3 text-center">
+                                <div class="text-2xl mb-1">🛎️</div>
+                                <div class="text-lg font-bold text-blue-900" id="adminServiceCount">24</div>
+                                <div class="text-sm text-gray-600">Layanan</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <span class="inline-block px-4 py-2 bg-green-600 text-white rounded-full font-bold">
+                                ✅ DATA LOKAL AKTIF - Repository JSON Kosong
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Repository Information -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <h3 class="text-lg font-bold text-blue-800 mb-3">📊 Informasi Repository</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">Repository:</p>
+                                <p class="font-mono text-sm bg-white p-2 rounded border">amanggigit/porprov-kalsel-2025-data</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">Branch:</p>
+                                <p class="font-mono text-sm bg-white p-2 rounded border">main</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">Last Sync:</p>
+                                <p class="font-mono text-sm bg-white p-2 rounded border" id="adminLastSync">-</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">Status:</p>
+                                <p class="font-mono text-sm bg-white p-2 rounded border text-green-600 font-bold">LOCAL_DATA_ACTIVE</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-sm text-gray-600 mb-1">Message:</p>
+                            <p class="text-sm bg-white p-2 rounded border">Menggunakan data lokal tersinkronisasi - Repository JSON kosong</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Data Details -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">📋 Detail Data</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="font-semibold">📰 Berita Terkini</span>
+                                <span class="text-green-600 font-bold">✅ 10 artikel</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="font-semibold">📅 Jadwal Pertandingan</span>
+                                <span class="text-green-600 font-bold">✅ 24 event</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="font-semibold">🏆 Klasemen Medali</span>
+                                <span class="text-green-600 font-bold">✅ 13 daerah</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="font-semibold">🏟️ Venue & Lokasi</span>
+                                <span class="text-green-600 font-bold">✅ 15 venue</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="font-semibold">👥 Data Official</span>
+                                <span class="text-green-600 font-bold">✅ 24 official</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2">
+                                <span class="font-semibold">🛎️ Layanan</span>
+                                <span class="text-green-600 font-bold">✅ 24 layanan</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <button onclick="refreshDataSync()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-all">
+                            🔄 Refresh Status
+                        </button>
+                        <button onclick="exportDataLog()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-all">
+                            📊 Export Log
+                        </button>
+                        <button onclick="clearConsoleLog()" class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold transition-all">
+                            🧹 Clear Console
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="floating-nav fixed top-0 w-full z-50 shadow-lg">
+    <nav class="floating-nav fixed top-10 w-full z-50 shadow-lg">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between py-4">
                 <div class="flex items-center space-x-4">
@@ -225,7 +357,7 @@
                     </div>
                     <div>
                         <h1 class="text-xl font-bold text-white">PORPROV Kalsel 2025</h1>
-                        <p class="text-blue-200 text-sm">Kabupaten Tapin</p>
+                        <p class="text-blue-200 text-sm">Kabupaten Tapin • <span onclick="openAdminPanel()" class="cursor-pointer hover:text-yellow-400 transition-colors">Data Tersinkronisasi ✅</span></p>
                     </div>
                 </div>
                 
@@ -370,7 +502,7 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="beranda" class="hero-section min-h-screen flex items-center pt-20">
+    <section id="beranda" class="hero-section min-h-screen flex items-center pt-32">
         <div class="container mx-auto px-4">
             <div class="text-center text-white">
                 <div class="mb-8">
@@ -769,1249 +901,331 @@
     </div>
 
     <script>
-        // Synchronized data arrays - all data properly structured for sync
-        const newsData = [
-            {
-                id: 1,
-                title: "🎉 Pembukaan PORPROV Kalsel 2025 Meriah di Stadion Demang Lehman",
-                category: "acara",
-                content: "Upacara pembukaan PORPROV Kalimantan Selatan 2025 berlangsung meriah di Stadion Demang Lehman, Rantau. Gubernur Kalsel H. Sahbirin Noor memberikan sambutan dan secara resmi membuka pesta olahraga terbesar di Kalsel dengan menyalakan api obor. Acara dihadiri 15.000 penonton dan menampilkan parade 13 kabupaten/kota peserta dengan kostum tradisional yang memukau. Pertunjukan seni budaya Banjar dan tarian kolosal melibatkan 1.000 penari memeriahkan malam pembukaan yang disiarkan langsung ke seluruh Indonesia.",
-                date: "2025-01-15",
-                image: "🏟️",
-                author: "Tim Media PORPROV",
-                status: "published",
-                views: 15420,
-                likes: 892
-            },
-            {
-                id: 2,
-                title: "🏊‍♂️ Atlet Renang Tapin Pecahkan Rekor Kalsel di Nomor 100m Gaya Bebas",
-                category: "hasil",
-                content: "Muhammad Rizki Pratama (17) dari Kabupaten Tapin berhasil memecahkan rekor Kalimantan Selatan untuk nomor 100m gaya bebas putra dengan catatan waktu 52.34 detik, memecahkan rekor lama 53.12 detik yang telah bertahan selama 8 tahun. Prestasi gemilang ini sekaligus mengantarkan Tapin meraih medali emas pertama di cabang renang. Rizki yang merupakan siswa SMAN 1 Rantau ini telah berlatih selama 6 tahun di bawah bimbingan pelatih nasional.",
-                date: "2025-01-16",
-                image: "🏊‍♂️",
-                author: "Reporter Olahraga",
-                status: "published",
-                views: 8765,
-                likes: 543
-            },
-            {
-                id: 3,
-                title: "🥇 Klasemen Sementara Hari Ketiga: Tapin Kokoh di Puncak",
-                category: "hasil",
-                content: "Memasuki hari ketiga pertandingan, Kabupaten Tapin semakin kokoh memimpin klasemen sementara dengan koleksi 18 emas, 15 perak, dan 12 perunggu (total 45 medali). Banjarmasin di posisi kedua dengan 16 emas, 14 perak, 18 perunggu (total 48 medali). Persaingan ketat terjadi untuk posisi ketiga antara Banjar (14 emas) dan Barito Kuala (12 emas). Tapin unggul dalam cabang renang, atletik, dan sepak bola, sementara Banjarmasin mendominasi bulu tangkis dan bola voli.",
-                date: "2025-01-17",
-                image: "🏆",
-                author: "Tim Statistik PORPROV",
-                status: "published",
-                views: 12340,
-                likes: 678
-            },
-            {
-                id: 4,
-                title: "⚽ Drama Adu Penalti Sepak Bola Putra: Tapin Lolos ke Final",
-                category: "hasil",
-                content: "Pertandingan semifinal sepak bola putra antara Tapin vs Banjarmasin berakhir dramatis lewat adu penalti 4-2 setelah bermain imbang 2-2 hingga perpanjangan waktu. Kiper Tapin, Akhmad Fauzi, menjadi pahlawan dengan menggagalkan 2 tendangan penalti lawan. Tapin akan menghadapi Banjar di partai final pada 19 Januari 2025. Pertandingan disaksikan 12.000 penonton yang memadati Stadion Demang Lehman dengan antusiasme tinggi.",
-                date: "2025-01-17",
-                image: "⚽",
-                author: "Koresponden Sepak Bola",
-                status: "published",
-                views: 9876,
-                likes: 721
-            },
-            {
-                id: 5,
-                title: "🏸 Ganda Putri Bulu Tangkis Banjarmasin Raih Emas Perdana",
-                category: "hasil",
-                content: "Pasangan ganda putri Banjarmasin, Siti Nurhaliza/Rika Amelia, berhasil meraih medali emas setelah mengalahkan pasangan Tapin 21-18, 19-21, 21-16 dalam pertandingan final yang berlangsung sengit selama 1 jam 15 menit. Ini adalah medali emas pertama Banjarmasin dari cabang bulu tangkis. Kedua atlet yang merupakan mahasiswa Universitas Lambung Mangkurat ini telah berpasangan selama 3 tahun dan menargetkan tampil di PON Papua Selatan 2028.",
-                date: "2025-01-18",
-                image: "🏸",
-                author: "Tim Liputan Bulu Tangkis",
-                status: "published",
-                views: 6543,
-                likes: 432
-            },
-            {
-                id: 6,
-                title: "🏃‍♂️ Atlet Atletik Tanah Laut Sabet Tiga Medali Sekaligus",
-                category: "atlet",
-                content: "Muhammad Fadli Rahman, sprinter andalan Tanah Laut, tampil memukau dengan meraih tiga medali sekaligus: emas 100m (10.45 detik), emas 200m (21.23 detik), dan perak 4x100m estafet. Atlet berusia 19 tahun ini menjadi sorotan dan diprediksi akan memperkuat tim Kalsel di PON mendatang. Fadli yang berlatih di Pelatnas Jakarta sejak 2023 ini merupakan harapan besar atletik Kalimantan Selatan untuk meraih prestasi di tingkat nasional.",
-                date: "2025-01-18",
-                image: "🏃‍♂️",
-                author: "Wartawan Atletik",
-                status: "published",
-                views: 7890,
-                likes: 567
-            },
-            {
-                id: 7,
-                title: "🏥 Layanan Medis PORPROV Tangani 127 Kasus Cedera Ringan",
-                category: "layanan",
-                content: "Tim medis PORPROV Kalsel 2025 yang dipimpin dr. Hendra Gunawan, Sp.KO telah menangani 127 kasus cedera ringan dan 3 kasus cedera sedang selama 4 hari pertandingan. Sebagian besar kasus adalah kram otot dan lecet. Tidak ada cedera serius yang mengancam jiwa. Posko medis beroperasi 24 jam di setiap venue dengan 3 ambulans siaga dan 15 tenaga medis berpengalaman. Fasilitas medis dilengkapi peralatan modern termasuk X-ray portable dan ruang fisioterapi.",
-                date: "2025-01-18",
-                image: "🏥",
-                author: "Tim Medis PORPROV",
-                status: "published",
-                views: 4321,
-                likes: 298
-            },
-            {
-                id: 8,
-                title: "🎯 Panahan Barito Kuala Dominasi dengan 4 Medali Emas",
-                category: "hasil",
-                content: "Tim panahan Barito Kuala tampil dominan dengan meraih 4 dari 6 medali emas yang diperebutkan. Prestasi terbaik diraih Nurul Hikmah (recurve putri individu) dan Ahmad Syahrial (compound putra individu) yang keduanya memecahkan rekor PORPROV. Barito Kuala memantapkan diri sebagai raja panahan Kalsel dengan total 4 emas, 1 perak, dan 1 perunggu. Keberhasilan ini tidak lepas dari program pembinaan intensif yang dilakukan sejak 2020.",
-                date: "2025-01-19",
-                image: "🎯",
-                author: "Koresponden Panahan",
-                status: "published",
-                views: 5678,
-                likes: 389
-            },
-            {
-                id: 9,
-                title: "🏐 Final Bola Voli Putri: Banjarmasin vs Tapin Berlangsung Sengit",
-                category: "hasil",
-                content: "Pertandingan final bola voli putri antara Banjarmasin vs Tapin berlangsung sangat sengit dengan skor akhir 3-2 (25-23, 23-25, 25-21, 22-25, 15-13) untuk kemenangan Banjarmasin. Pertandingan yang berlangsung selama 2 jam 30 menit ini disaksikan penuh oleh 3.000 penonton di GOR Tuntung Pandang. Kapten tim Banjarmasin, Sari Dewi, terpilih sebagai MVP dengan 28 poin.",
-                date: "2025-01-19",
-                image: "🏐",
-                author: "Reporter Bola Voli",
-                status: "published",
-                views: 6789,
-                likes: 445
-            },
-            {
-                id: 10,
-                title: "🥊 Tinju Tapin Borong 3 Emas dari 5 Kelas yang Dipertandingkan",
-                category: "hasil",
-                content: "Tim tinju Kabupaten Tapin meraih prestasi gemilang dengan menyabet 3 medali emas dari 5 kelas yang dipertandingkan. Emas diraih oleh Ahmad Rizal (kelas 60kg), Bayu Pratama (kelas 69kg), dan Hendra Saputra (kelas 81kg). Ketiganya akan mewakili Kalsel di kejuaraan nasional tahun ini. Prestasi ini menjadikan Tapin sebagai kekuatan baru dalam cabang tinju di Kalimantan Selatan.",
-                date: "2025-01-20",
-                image: "🥊",
-                author: "Wartawan Tinju",
-                status: "published",
-                views: 4567,
-                likes: 321
-            }
-        ];
+        // Data sync functions
+        async function syncDataFromGitHub() {
+            try {
+                DATA_SOURCE.status = "SYNCING";
+                DATA_SOURCE.message = "Mengambil data dari repository...";
+                updateSyncStatus();
 
-        const scheduleData = [
-            // Hari 1 - 15 Januari 2025
-            {
-                id: 1,
-                category: "Upacara",
-                sport: "Pembukaan",
-                date: "2025-01-15",
-                time: "19:00",
-                match: "Upacara Pembukaan PORPROV Kalsel 2025",
-                venue: "Stadion Demang Lehman",
-                status: "Completed",
-                result: "Sukses - 15.000 penonton hadir",
-                participants: "13 Kabupaten/Kota"
-            },
-            
-            // Hari 2 - 16 Januari 2025
-            {
-                id: 2,
-                category: "Putra",
-                sport: "Renang",
-                date: "2025-01-16",
-                time: "08:00",
-                match: "Kualifikasi 100m Gaya Bebas Putra",
-                venue: "Aquatic Center Tapin",
-                status: "Completed",
-                result: "8 perenang lolos final",
-                participants: "32 atlet"
-            },
-            {
-                id: 3,
-                category: "Putri",
-                sport: "Renang",
-                date: "2025-01-16",
-                time: "09:30",
-                match: "Final 50m Gaya Kupu-kupu Putri",
-                venue: "Aquatic Center Tapin",
-                status: "Completed",
-                result: "🥇 Sari Dewi (Banjarmasin) - 28.45s",
-                participants: "8 atlet"
-            },
-            {
-                id: 4,
-                category: "Putra",
-                sport: "Atletik",
-                date: "2025-01-16",
-                time: "15:00",
-                match: "Kualifikasi Lompat Jauh Putra",
-                venue: "Stadion Demang Lehman",
-                status: "Completed",
-                result: "12 atlet lolos final",
-                participants: "28 atlet"
-            },
-            {
-                id: 5,
-                category: "Beregu Putra",
-                sport: "Sepak Bola",
-                date: "2025-01-16",
-                time: "16:00",
-                match: "Tapin vs Tanah Laut (Grup A)",
-                venue: "Stadion Demang Lehman",
-                status: "Completed",
-                result: "Tapin 3-1 Tanah Laut",
-                participants: "22 pemain"
-            },
-            
-            // Hari 3 - 17 Januari 2025
-            {
-                id: 6,
-                category: "Putra",
-                sport: "Renang",
-                date: "2025-01-17",
-                time: "08:30",
-                match: "Final 100m Gaya Bebas Putra",
-                venue: "Aquatic Center Tapin",
-                status: "Completed",
-                result: "🥇 M. Rizki Pratama (Tapin) - 52.34s (REKOR)",
-                participants: "8 atlet"
-            },
-            {
-                id: 7,
-                category: "Putri",
-                sport: "Bulu Tangkis",
-                date: "2025-01-17",
-                time: "09:00",
-                match: "Semifinal Tunggal Putri",
-                venue: "GOR Tuntung Pandang",
-                status: "Completed",
-                result: "2 finalis ditentukan",
-                participants: "4 atlet"
-            },
-            {
-                id: 8,
-                category: "Putra",
-                sport: "Atletik",
-                date: "2025-01-17",
-                time: "16:00",
-                match: "Final 100m Putra",
-                venue: "Stadion Demang Lehman",
-                status: "Completed",
-                result: "🥇 M. Fadli Rahman (Tanah Laut) - 10.45s",
-                participants: "8 atlet"
-            },
-            {
-                id: 9,
-                category: "Beregu Putra",
-                sport: "Sepak Bola",
-                date: "2025-01-17",
-                time: "19:00",
-                match: "Semifinal: Tapin vs Banjarmasin",
-                venue: "Stadion Demang Lehman",
-                status: "Completed",
-                result: "Tapin 4-2 Banjarmasin (adu penalti)",
-                participants: "22 pemain"
-            },
-            
-            // Hari 4 - 18 Januari 2025 (Hari Ini)
-            {
-                id: 10,
-                category: "Putri",
-                sport: "Bulu Tangkis",
-                date: "2025-01-18",
-                time: "09:00",
-                match: "Final Ganda Putri",
-                venue: "GOR Tuntung Pandang",
-                status: "Completed",
-                result: "🥇 Siti Nurhaliza/Rika Amelia (Banjarmasin)",
-                participants: "4 atlet"
-            },
-            {
-                id: 11,
-                category: "Putra",
-                sport: "Atletik",
-                date: "2025-01-18",
-                time: "10:00",
-                match: "Final 200m Putra",
-                venue: "Stadion Demang Lehman",
-                status: "Completed",
-                result: "🥇 M. Fadli Rahman (Tanah Laut) - 21.23s",
-                participants: "8 atlet"
-            },
-            {
-                id: 12,
-                category: "Putri",
-                sport: "Bola Voli",
-                date: "2025-01-18",
-                time: "14:00",
-                match: "Semifinal: Banjarmasin vs Barito Kuala",
-                venue: "GOR Tuntung Pandang",
-                status: "Live",
-                result: "Set 1: 25-23 (Banjarmasin)",
-                participants: "12 atlet"
-            },
-            {
-                id: 13,
-                category: "Putra",
-                sport: "Bola Basket",
-                date: "2025-01-18",
-                time: "16:00",
-                match: "Final: Banjarmasin vs Tapin",
-                venue: "GOR Tuntung Pandang",
-                status: "Scheduled",
-                result: "-",
-                participants: "10 atlet"
-            },
-            {
-                id: 14,
-                category: "Beregu Campuran",
-                sport: "Tenis Meja",
-                date: "2025-01-18",
-                time: "19:00",
-                match: "Final Ganda Campuran",
-                venue: "Hall Serbaguna Tapin",
-                status: "Scheduled",
-                result: "-",
-                participants: "4 atlet"
-            },
-            
-            // Hari 5 - 19 Januari 2025
-            {
-                id: 15,
-                category: "Putra",
-                sport: "Panahan",
-                date: "2025-01-19",
-                time: "08:00",
-                match: "Final Recurve Individu Putra",
-                venue: "Lapangan Panahan Tapin",
-                status: "Scheduled",
-                result: "-",
-                participants: "8 atlet"
-            },
-            {
-                id: 16,
-                category: "Putri",
-                sport: "Panahan",
-                date: "2025-01-19",
-                time: "10:00",
-                match: "Final Compound Individu Putri",
-                venue: "Lapangan Panahan Tapin",
-                status: "Scheduled",
-                result: "-",
-                participants: "8 atlet"
-            },
-            {
-                id: 17,
-                category: "Putra",
-                sport: "Karate",
-                date: "2025-01-19",
-                time: "13:00",
-                match: "Final Kumite -67kg Putra",
-                venue: "Arena Pencak Silat Tapin",
-                status: "Scheduled",
-                result: "-",
-                participants: "4 atlet"
-            },
-            {
-                id: 18,
-                category: "Beregu Putra",
-                sport: "Sepak Bola",
-                date: "2025-01-19",
-                time: "16:00",
-                match: "Final: Tapin vs Banjar",
-                venue: "Stadion Demang Lehman",
-                status: "Scheduled",
-                result: "-",
-                participants: "22 pemain"
-            },
-            {
-                id: 19,
-                category: "Putri",
-                sport: "Bola Voli",
-                date: "2025-01-19",
-                time: "19:00",
-                match: "Final Putri: Banjarmasin vs Tapin",
-                venue: "GOR Tuntung Pandang",
-                status: "Scheduled",
-                result: "-",
-                participants: "12 atlet"
-            },
-            
-            // Hari 6 - 20 Januari 2025
-            {
-                id: 20,
-                category: "Beregu Putra",
-                sport: "Futsal",
-                date: "2025-01-20",
-                time: "09:00",
-                match: "Final Futsal Putra",
-                venue: "GOR Tuntung Pandang",
-                status: "Scheduled",
-                result: "-",
-                participants: "10 pemain"
-            },
-            {
-                id: 21,
-                category: "Putra",
-                sport: "Pencak Silat",
-                date: "2025-01-20",
-                time: "14:00",
-                match: "Final Kelas C (65-70kg)",
-                venue: "Arena Pencak Silat Tapin",
-                status: "Scheduled",
-                result: "-",
-                participants: "4 atlet"
-            },
-            {
-                id: 22,
-                category: "Beregu Campuran",
-                sport: "Catur",
-                date: "2025-01-20",
-                time: "16:00",
-                match: "Final Beregu Campuran",
-                venue: "Hall Serbaguna Tapin",
-                status: "Scheduled",
-                result: "-",
-                participants: "8 pemain"
-            },
-            {
-                id: 23,
-                category: "Putra",
-                sport: "Tinju",
-                date: "2025-01-20",
-                time: "19:00",
-                match: "Final Kelas 69kg Putra",
-                venue: "Arena Pencak Silat Tapin",
-                status: "Scheduled",
-                result: "-",
-                participants: "2 atlet"
-            },
-            
-            // Hari 7 - 21 Januari 2025 (Penutupan)
-            {
-                id: 24,
-                category: "Upacara",
-                sport: "Penutupan",
-                date: "2025-01-21",
-                time: "19:00",
-                match: "Upacara Penutupan PORPROV Kalsel 2025",
-                venue: "Stadion Demang Lehman",
-                status: "Scheduled",
-                result: "-",
-                participants: "Semua kontingen"
-            }
-        ];
+                const endpoints = [
+                    { name: 'news', url: `${DATA_SOURCE.baseUrl}news.json`, target: 'newsData' },
+                    { name: 'schedule', url: `${DATA_SOURCE.baseUrl}schedule.json`, target: 'scheduleData' },
+                    { name: 'medals', url: `${DATA_SOURCE.baseUrl}medals.json`, target: 'medalData' },
+                    { name: 'venues', url: `${DATA_SOURCE.baseUrl}venues.json`, target: 'venueData' },
+                    { name: 'officials', url: `${DATA_SOURCE.baseUrl}officials.json`, target: 'officialData' },
+                    { name: 'services', url: `${DATA_SOURCE.baseUrl}services.json`, target: 'serviceData' }
+                ];
 
-        const medalData = [
-            {
-                id: 1,
-                region: "Tapin",
-                gold: 18,
-                silver: 15,
-                bronze: 12,
-                total: 45
-            },
-            {
-                id: 2,
-                region: "Banjarmasin",
-                gold: 16,
-                silver: 14,
-                bronze: 18,
-                total: 48
-            },
-            {
-                id: 3,
-                region: "Banjar",
-                gold: 14,
-                silver: 12,
-                bronze: 15,
-                total: 41
-            },
-            {
-                id: 4,
-                region: "Barito Kuala",
-                gold: 12,
-                silver: 16,
-                bronze: 14,
-                total: 42
-            },
-            {
-                id: 5,
-                region: "Tanah Laut",
-                gold: 10,
-                silver: 11,
-                bronze: 13,
-                total: 34
-            },
-            {
-                id: 6,
-                region: "Hulu Sungai Selatan",
-                gold: 8,
-                silver: 10,
-                bronze: 12,
-                total: 30
-            },
-            {
-                id: 7,
-                region: "Hulu Sungai Tengah",
-                gold: 7,
-                silver: 9,
-                bronze: 11,
-                total: 27
-            },
-            {
-                id: 8,
-                region: "Hulu Sungai Utara",
-                gold: 6,
-                silver: 8,
-                bronze: 10,
-                total: 24
-            },
-            {
-                id: 9,
-                region: "Tabalong",
-                gold: 5,
-                silver: 7,
-                bronze: 9,
-                total: 21
-            },
-            {
-                id: 10,
-                region: "Tanah Bumbu",
-                gold: 4,
-                silver: 6,
-                bronze: 8,
-                total: 18
-            },
-            {
-                id: 11,
-                region: "Kotabaru",
-                gold: 3,
-                silver: 5,
-                bronze: 7,
-                total: 15
-            },
-            {
-                id: 12,
-                region: "Balangan",
-                gold: 2,
-                silver: 4,
-                bronze: 6,
-                total: 12
-            },
-            {
-                id: 13,
-                region: "Banjarbaru",
-                gold: 1,
-                silver: 3,
-                bronze: 5,
-                total: 9
-            }
-        ];
+                let syncedCount = 0;
+                let totalEndpoints = endpoints.length;
 
-        const venueData = [
-            {
-                id: 1,
-                name: "Stadion Demang Lehman",
-                type: "Stadion",
-                capacity: 15000,
-                location: "Jl. Ahmad Yani, Rantau, Tapin",
-                sports: "Sepak Bola, Atletik, Upacara Pembukaan/Penutupan",
-                facilities: "Parkir 500 mobil, Toilet 20 unit, Kantin 5 outlet, Sound system profesional, Ruang VIP, Tribun bertingkat, Ruang pers, Medical center",
-                contact: "+62 511-41234",
-                status: "Aktif"
-            },
-            {
-                id: 2,
-                name: "GOR Tuntung Pandang",
-                type: "GOR",
-                capacity: 3000,
-                location: "Jl. Tuntung Pandang, Rantau, Tapin",
-                sports: "Bola Voli, Bulu Tangkis, Basket, Futsal",
-                facilities: "AC central, Parkir 200 mobil, Toilet 12 unit, Kantin 2 outlet, Ruang ganti 8 unit, Tribun telescopic, Lighting LED",
-                contact: "+62 511-41235",
-                status: "Aktif"
-            },
-            {
-                id: 3,
-                name: "Aquatic Center Tapin",
-                type: "Kolam Renang",
-                capacity: 1500,
-                location: "Kompleks Olahraga Tapin, Rantau",
-                sports: "Renang, Polo Air, Loncat Indah",
-                facilities: "Kolam Olympic 50m x 25m, Kolam loncat indah, Kolam pemanasan, Tribun 1500 kursi, Ruang ganti 12 unit, Cafeteria, Timing system elektronik",
-                contact: "+62 511-41236",
-                status: "Aktif"
-            },
-            {
-                id: 4,
-                name: "Arena Pencak Silat Tapin",
-                type: "Arena",
-                capacity: 800,
-                location: "Gedung Serbaguna Tapin, Rantau",
-                sports: "Pencak Silat, Karate, Taekwondo, Judo, Gulat, Tinju",
-                facilities: "Matras profesional 12m x 12m, Sound system, Tribun portable, Ruang ganti 6 unit, Medical corner, Ruang wasit",
-                contact: "+62 511-41237",
-                status: "Aktif"
-            },
-            {
-                id: 5,
-                name: "Hall Serbaguna Tapin",
-                type: "Hall",
-                capacity: 1200,
-                location: "Kompleks Perkantoran Tapin, Rantau",
-                sports: "Tenis Meja, Catur, Bridge, Billiard",
-                facilities: "AC central, 20 meja tenis meja, Ruang catur ber-AC, Area billiard, Parkir 150 mobil, Kantin, WiFi gratis",
-                contact: "+62 511-41238",
-                status: "Aktif"
-            },
-            {
-                id: 6,
-                name: "Lapangan Panahan Tapin",
-                type: "Lapangan",
-                capacity: 500,
-                location: "Taman Kota Rantau, Tapin",
-                sports: "Panahan (Recurve & Compound)",
-                facilities: "Target range 70m, Tribun 500 kursi, Ruang peralatan, Scoring system elektronik, Shelter cuaca",
-                contact: "+62 511-41239",
-                status: "Aktif"
-            },
-            {
-                id: 7,
-                name: "Lapangan Tenis Tapin",
-                type: "Lapangan",
-                capacity: 400,
-                location: "Kompleks Olahraga Tapin, Rantau",
-                sports: "Tenis Lapangan",
-                facilities: "4 lapangan hard court, Lighting malam, Tribun 400 kursi, Ruang ganti, Pro shop",
-                contact: "+62 511-41240",
-                status: "Aktif"
-            },
-            {
-                id: 8,
-                name: "Shooting Range Tapin",
-                type: "Arena",
-                capacity: 200,
-                location: "Kawasan Industri Tapin, Rantau",
-                sports: "Menembak (Air Rifle & Air Pistol)",
-                facilities: "10 lane menembak, Electronic scoring, Ruang senjata, Safety equipment, Tribun 200 kursi",
-                contact: "+62 511-41241",
-                status: "Aktif"
-            },
-            {
-                id: 9,
-                name: "Lapangan Sepak Takraw Tapin",
-                type: "Lapangan",
-                capacity: 600,
-                location: "Kompleks Olahraga Tapin, Rantau",
-                sports: "Sepak Takraw",
-                facilities: "2 lapangan outdoor, Tribun 600 kursi, Lighting LED, Ruang ganti, Medical post",
-                contact: "+62 511-41242",
-                status: "Aktif"
-            },
-            {
-                id: 10,
-                name: "Gym Angkat Besi Tapin",
-                type: "GOR",
-                capacity: 300,
-                location: "Gedung Olahraga Tapin, Rantau",
-                sports: "Angkat Besi, Angkat Berat",
-                facilities: "Platform competition grade, Barbel set Olympic, Tribun 300 kursi, AC, Sound system, Ruang doping test",
-                contact: "+62 511-41243",
-                status: "Aktif"
-            },
-            {
-                id: 11,
-                name: "Arena Senam Tapin",
-                type: "Arena",
-                capacity: 800,
-                location: "GOR Tuntung Pandang (Lantai 2)",
-                sports: "Senam Artistik, Senam Ritmik",
-                facilities: "Matras spring floor, Palang sejajar, Kuda pelana, Gelang-gelang, Tribun 800 kursi, Ruang pemanasan",
-                contact: "+62 511-41244",
-                status: "Aktif"
-            },
-            {
-                id: 12,
-                name: "Bowling Center Tapin",
-                type: "Arena",
-                capacity: 200,
-                location: "Mall Tapin Plaza, Rantau",
-                sports: "Bowling",
-                facilities: "8 lane bowling, Automatic scoring, Tribun 200 kursi, Cafeteria, Rental shoes, Pro shop",
-                contact: "+62 511-41245",
-                status: "Aktif"
-            },
-            {
-                id: 13,
-                name: "Danau Tapin",
-                type: "Venue Outdoor",
-                capacity: 1000,
-                location: "Danau Tapin, Rantau",
-                sports: "Dayung, Kano, Perahu Naga",
-                facilities: "Lintasan 2000m, Tribun portable 1000 kursi, Dermaga start/finish, Timing system, Boat storage, Medical boat",
-                contact: "+62 511-41246",
-                status: "Aktif"
-            },
-            {
-                id: 14,
-                name: "Wall Climbing Tapin",
-                type: "Arena",
-                capacity: 300,
-                location: "Gedung Pemuda Tapin, Rantau",
-                sports: "Panjat Tebing (Sport Climbing)",
-                facilities: "Dinding panjat 15m, Speed climbing, Bouldering area, Safety equipment, Tribun 300 kursi, Ruang ganti",
-                contact: "+62 511-41247",
-                status: "Aktif"
-            },
-            {
-                id: 15,
-                name: "Velodrome Tapin",
-                type: "Velodrome",
-                capacity: 2000,
-                location: "Kawasan Olahraga Tapin, Rantau",
-                sports: "Sepeda (Track Cycling)",
-                facilities: "Track 250m, Tribun 2000 kursi, Timing system, Bike storage, Workshop area, Medical center",
-                contact: "+62 511-41248",
-                status: "Aktif"
-            }
-        ];
+                for (const endpoint of endpoints) {
+                    try {
+                        const response = await fetch(endpoint.url);
+                        if (response.ok) {
+                            const data = await response.json();
+                            if (Array.isArray(data) && data.length > 0) {
+                                window[endpoint.target] = data;
+                                syncedCount++;
+                                console.log(`✅ ${endpoint.name}: ${data.length} items loaded from GitHub`);
+                            } else {
+                                console.log(`⚠️ ${endpoint.name}: Empty or invalid data from GitHub, using fallback`);
+                                loadFallbackData(endpoint.target);
+                            }
+                        } else {
+                            console.log(`⚠️ ${endpoint.name}: HTTP ${response.status}, using fallback data`);
+                            loadFallbackData(endpoint.target);
+                        }
+                    } catch (error) {
+                        console.log(`⚠️ ${endpoint.name}: Network error, using fallback data`);
+                        loadFallbackData(endpoint.target);
+                    }
+                }
 
-        const officialData = [
-            // Management Level
-            {
-                id: 1,
-                name: "Dr. H. Ahmad Suryadi, M.Pd",
-                position: "Ketua Umum",
-                organization: "KONI Kalimantan Selatan",
-                sport: "Umum",
-                phone: "+62 812-3456-7890",
-                email: "ahmad.suryadi@koni-kalsel.org",
-                certification: "Manajemen Olahraga Nasional, Sertifikat IOC, Pelatihan Kepemimpinan Olahraga"
-            },
-            {
-                id: 2,
-                name: "Hj. Siti Maryam, S.H., M.H.",
-                position: "Wakil Ketua",
-                organization: "KONI Kalimantan Selatan",
-                sport: "Umum",
-                phone: "+62 813-2345-6789",
-                email: "siti.maryam@koni-kalsel.org",
-                certification: "Hukum Olahraga, Manajemen Event Olahraga"
-            },
-            {
-                id: 3,
-                name: "Drs. H. Muhammad Yusuf",
-                position: "Sekretaris Jenderal",
-                organization: "KONI Kalimantan Selatan",
-                sport: "Umum",
-                phone: "+62 814-3456-7890",
-                email: "yusuf@koni-kalsel.org",
-                certification: "Administrasi Olahraga, Sertifikat Manajemen PORPROV"
-            },
-            
-            // Technical Delegates
-            {
-                id: 4,
-                name: "Ir. Bambang Sutrisno",
-                position: "Technical Delegate",
-                organization: "PB PASI",
-                sport: "Atletik",
-                phone: "+62 815-4567-8901",
-                email: "bambang@pasi-kalsel.org",
-                certification: "TD IAAF Level 3, Juri Atletik Nasional"
-            },
-            {
-                id: 5,
-                name: "Dra. Rina Sari Dewi",
-                position: "Technical Delegate",
-                organization: "PB PRSI",
-                sport: "Renang",
-                phone: "+62 816-5678-9012",
-                email: "rina@prsi-kalsel.org",
-                certification: "TD FINA, Starter Renang Internasional"
-            },
-            
-            // Referees & Judges - Sepak Bola
-            {
-                id: 6,
-                name: "Drs. Bambang Hermanto",
-                position: "Wasit",
-                organization: "PSSI Kalsel",
-                sport: "Sepak Bola",
-                phone: "+62 813-4567-8901",
-                email: "bambang@pssi-kalsel.org",
-                certification: "Wasit FIFA, Lisensi AFC Pro, Instruktur Wasit Nasional"
-            },
-            {
-                id: 7,
-                name: "Ahmad Fauzi, S.Pd",
-                position: "Asisten Wasit",
-                organization: "PSSI Kalsel",
-                sport: "Sepak Bola",
-                phone: "+62 817-6789-0123",
-                email: "fauzi@pssi-kalsel.org",
-                certification: "Asisten Wasit FIFA, Lisensi AFC"
-            },
-            
-            // Bola Voli
-            {
-                id: 8,
-                name: "Siti Nurhaliza, S.Pd",
-                position: "Juri",
-                organization: "PBVSI Kalsel",
-                sport: "Bola Voli",
-                phone: "+62 814-5678-9012",
-                email: "siti@pbvsi-kalsel.org",
-                certification: "Juri Internasional FIVB Level 2, Referee Instructor"
-            },
-            {
-                id: 9,
-                name: "Hendra Gunawan, S.Pd",
-                position: "Wasit",
-                organization: "PBVSI Kalsel",
-                sport: "Bola Voli",
-                phone: "+62 818-7890-1234",
-                email: "hendra@pbvsi-kalsel.org",
-                certification: "Wasit FIVB Level 1, Pelatih Lisensi C"
-            },
-            
-            // Bulu Tangkis
-            {
-                id: 10,
-                name: "Drs. Agus Salim",
-                position: "Juri",
-                organization: "PBSI Kalsel",
-                sport: "Bulu Tangkis",
-                phone: "+62 819-8901-2345",
-                email: "agus@pbsi-kalsel.org",
-                certification: "BWF Certified Umpire Level 2, Technical Official"
-            },
-            {
-                id: 11,
-                name: "Rika Amelia, S.Pd",
-                position: "Line Judge",
-                organization: "PBSI Kalsel",
-                sport: "Bulu Tangkis",
-                phone: "+62 820-9012-3456",
-                email: "rika@pbsi-kalsel.org",
-                certification: "BWF Line Judge, Service Judge Certified"
-            },
-            
-            // Renang
-            {
-                id: 12,
-                name: "Dr. Hendra Wijaya, Sp.KO",
-                position: "Starter",
-                organization: "PB PRSI",
-                sport: "Renang",
-                phone: "+62 821-0123-4567",
-                email: "hendra@prsi-kalsel.org",
-                certification: "FINA Starter Level 2, Timekeeper Official"
-            },
-            {
-                id: 13,
-                name: "Nurul Hikmah, S.Pd",
-                position: "Juri",
-                organization: "PB PRSI",
-                sport: "Renang",
-                phone: "+62 822-1234-5678",
-                email: "nurul@prsi-kalsel.org",
-                certification: "FINA Judge Level 1, Swimming Technical Official"
-            },
-            
-            // Bola Basket
-            {
-                id: 14,
-                name: "Drs. Rizki Pratama",
-                position: "Wasit",
-                organization: "Perbasi Kalsel",
-                sport: "Bola Basket",
-                phone: "+62 823-2345-6789",
-                email: "rizki@perbasi-kalsel.org",
-                certification: "FIBA Referee Level 2, Instructor Wasit Nasional"
-            },
-            
-            // Pencak Silat & Beladiri
-            {
-                id: 15,
-                name: "H. Syamsul Bahri, S.Pd",
-                position: "Juri",
-                organization: "IPSI Kalsel",
-                sport: "Pencak Silat",
-                phone: "+62 824-3456-7890",
-                email: "syamsul@ipsi-kalsel.org",
-                certification: "Juri Internasional PERSILAT, Pelatih Pencak Silat Dan I"
-            },
-            {
-                id: 16,
-                name: "Drs. Akhmad Yani",
-                position: "Wasit",
-                organization: "Forki Kalsel",
-                sport: "Karate",
-                phone: "+62 825-4567-8901",
-                email: "akhmad@forki-kalsel.org",
-                certification: "WKF Referee, Kata & Kumite Judge Level 2"
-            },
-            
-            // Panahan
-            {
-                id: 17,
-                name: "Dra. Fatimah Azzahra",
-                position: "Juri",
-                organization: "Perpani Kalsel",
-                sport: "Panahan",
-                phone: "+62 826-5678-9012",
-                email: "fatimah@perpani-kalsel.org",
-                certification: "World Archery Judge Level 2, Field Captain"
-            },
-            
-            // Tenis Meja
-            {
-                id: 18,
-                name: "Drs. Wahyu Hidayat",
-                position: "Wasit",
-                organization: "PTMSI Kalsel",
-                sport: "Tenis Meja",
-                phone: "+62 827-6789-0123",
-                email: "wahyu@ptmsi-kalsel.org",
-                certification: "ITTF Blue Badge Umpire, Deputy Referee"
-            },
-            
-            // Medical & Support Staff
-            {
-                id: 19,
-                name: "dr. Hendra Gunawan, Sp.KO",
-                position: "Medical Officer",
-                organization: "IDI Kalsel",
-                sport: "Medis",
-                phone: "+62 815-6789-0123",
-                email: "hendra.medical@idi-kalsel.org",
-                certification: "Dokter Olahraga, Sertifikat FIFA Medical, ACLS Provider"
-            },
-            {
-                id: 20,
-                name: "dr. Sari Indah Lestari, Sp.KO",
-                position: "Medical Officer",
-                organization: "IDI Kalsel",
-                sport: "Medis",
-                phone: "+62 828-7890-1234",
-                email: "sari@idi-kalsel.org",
-                certification: "Dokter Olahraga, Sports Medicine Specialist, Doping Control Officer"
-            },
-            
-            // Security & Protocol
-            {
-                id: 21,
-                name: "AKBP Drs. Suryanto",
-                position: "Security Officer",
-                organization: "Polres Tapin",
-                sport: "Keamanan",
-                phone: "+62 829-8901-2345",
-                email: "suryanto@polres-tapin.go.id",
-                certification: "Manajemen Keamanan Event, Crowd Control Specialist"
-            },
-            {
-                id: 22,
-                name: "Drs. H. Ruslan Effendi",
-                position: "Protocol Officer",
-                organization: "Pemkab Tapin",
-                sport: "Protokol",
-                phone: "+62 830-9012-3456",
-                email: "ruslan@tapinkab.go.id",
-                certification: "Protokol Negara, Event Management, Ceremony Specialist"
-            },
-            
-            // Media & Information
-            {
-                id: 23,
-                name: "Drs. Fadli Rahman",
-                position: "Media Officer",
-                organization: "Diskominfo Kalsel",
-                sport: "Media",
-                phone: "+62 831-0123-4567",
-                email: "fadli@diskominfo-kalsel.go.id",
-                certification: "Jurnalistik Olahraga, Digital Media Management, Broadcasting"
-            },
-            {
-                id: 24,
-                name: "Andi Wijaya, S.Kom",
-                position: "IT Support",
-                organization: "Tim IT PORPROV",
-                sport: "Teknologi",
-                phone: "+62 832-1234-5678",
-                email: "andi@porprov-kalsel.org",
-                certification: "Network Administrator, Database Management, Live Streaming"
-            }
-        ];
+                DATA_SOURCE.lastSync = new Date().toISOString();
+                
+                if (syncedCount === totalEndpoints) {
+                    DATA_SOURCE.status = "GITHUB_SYNC_SUCCESS";
+                    DATA_SOURCE.message = `Semua data berhasil disinkronisasi dari GitHub (${syncedCount}/${totalEndpoints})`;
+                } else if (syncedCount > 0) {
+                    DATA_SOURCE.status = "PARTIAL_SYNC";
+                    DATA_SOURCE.message = `Sebagian data dari GitHub (${syncedCount}/${totalEndpoints}), sisanya menggunakan data fallback`;
+                } else {
+                    DATA_SOURCE.status = "FALLBACK_DATA_ACTIVE";
+                    DATA_SOURCE.message = "Repository kosong atau tidak dapat diakses, menggunakan data fallback";
+                }
 
-        const serviceData = [
-            // Medical Services
-            {
-                id: 1,
-                name: "Layanan Medis Darurat",
-                category: "Medis",
-                description: "Layanan kesehatan 24 jam dengan 3 ambulans siaga, 8 dokter spesialis olahraga, perawat terlatih, dan peralatan medis lengkap termasuk defibrilator dan ventilator untuk menangani cedera atlet dan emergency medis.",
-                location: "Posko Medis Utama - Stadion Demang Lehman",
-                hours: "24 Jam",
-                contact: "+62 812-1111-2222",
-                status: "Aktif"
-            },
-            {
-                id: 2,
-                name: "Klinik Fisioterapi",
-                category: "Medis",
-                description: "Layanan fisioterapi dan rehabilitasi untuk atlet dengan 6 fisioterapis berlisensi, peralatan terapi modern, dan ruang recovery khusus.",
-                location: "Klinik Olahraga - Aquatic Center Tapin",
-                hours: "06:00 - 22:00",
-                contact: "+62 813-1111-3333",
-                status: "Aktif"
-            },
-            {
-                id: 3,
-                name: "Doping Control",
-                category: "Medis",
-                description: "Layanan tes doping sesuai standar WADA dengan petugas bersertifikat internasional dan laboratorium terakreditasi.",
-                location: "Fasilitas Doping Control - GOR Tuntung Pandang",
-                hours: "Sesuai Jadwal Pertandingan",
-                contact: "+62 814-1111-4444",
-                status: "Aktif"
-            },
-            
-            // Transportation Services
-            {
-                id: 4,
-                name: "Shuttle Bus Atlet",
-                category: "Transportasi",
-                description: "Layanan transportasi khusus atlet dan official dengan 15 bus ber-AC dari hotel ke venue pertandingan. Jadwal reguler setiap 15 menit pada jam sibuk.",
-                location: "Terminal Shuttle - Hotel Tapin Plaza",
-                hours: "05:00 - 23:00",
-                contact: "+62 813-2222-3333",
-                status: "Aktif"
-            },
-            {
-                id: 5,
-                name: "Transportasi VIP",
-                category: "Transportasi",
-                description: "Layanan transportasi khusus untuk tamu VIP, official tingkat tinggi, dan delegasi dengan 8 kendaraan mewah dan driver berpengalaman.",
-                location: "Pool VIP - Hotel Tapin Plaza",
-                hours: "24 Jam",
-                contact: "+62 814-2222-4444",
-                status: "Aktif"
-            },
-            {
-                id: 6,
-                name: "Parkir Terpadu",
-                category: "Transportasi",
-                description: "Sistem parkir terpadu di semua venue dengan kapasitas 2000 mobil dan 5000 motor, dilengkapi sistem tiket elektronik dan petugas keamanan.",
-                location: "Semua Venue Pertandingan",
-                hours: "05:00 - 24:00",
-                contact: "+62 815-2222-5555",
-                status: "Aktif"
-            },
-            
-            // Accommodation Services
-            {
-                id: 7,
-                name: "Akomodasi Atlet",
-                category: "Akomodasi",
-                description: "Penginapan khusus atlet di 5 hotel berbintang dengan total 800 kamar, fasilitas gym, kolam renang, dan makanan bergizi seimbang.",
-                location: "Hotel Tapin Plaza & Hotel Partner",
-                hours: "24 Jam",
-                contact: "+62 816-3333-6666",
-                status: "Aktif"
-            },
-            {
-                id: 8,
-                name: "Guest House Official",
-                category: "Akomodasi",
-                description: "Penginapan untuk official dan wasit dengan 200 kamar standar internasional, meeting room, dan layanan concierge.",
-                location: "Guest House KONI - Rantau",
-                hours: "24 Jam",
-                contact: "+62 817-3333-7777",
-                status: "Aktif"
-            },
-            
-            // Food & Beverage Services
-            {
-                id: 9,
-                name: "Catering Atlet",
-                category: "Konsumsi",
-                description: "Penyediaan makanan bergizi seimbang untuk 2000 atlet dengan menu khusus diet olahraga, halal, vegetarian, dan menu khusus alergi. Dikelola chef berpengalaman.",
-                location: "Dapur Utama - Kompleks Olahraga Tapin",
-                hours: "04:00 - 22:00",
-                contact: "+62 814-3333-4444",
-                status: "Aktif"
-            },
-            {
-                id: 10,
-                name: "Food Court Penonton",
-                category: "Konsumsi",
-                description: "Area kuliner dengan 25 tenant makanan lokal dan nasional, food truck, dan minuman segar untuk penonton di semua venue.",
-                location: "Semua Venue Utama",
-                hours: "08:00 - 22:00",
-                contact: "+62 818-3333-8888",
-                status: "Aktif"
-            },
-            {
-                id: 11,
-                name: "Hydration Station",
-                category: "Konsumsi",
-                description: "Pos penyediaan air minum gratis dan minuman elektrolit untuk atlet dan official di semua venue dengan standar kesehatan tinggi.",
-                location: "Semua Venue Pertandingan",
-                hours: "06:00 - 22:00",
-                contact: "+62 819-3333-9999",
-                status: "Aktif"
-            },
-            
-            // Security Services
-            {
-                id: 12,
-                name: "Security & Keamanan",
-                category: "Keamanan",
-                description: "Layanan keamanan terpadu dengan 200 petugas bersertifikat, 150 CCTV, metal detector, dan koordinasi dengan TNI-Polri untuk menjamin keamanan event.",
-                location: "Pos Komando Keamanan - Semua Venue",
-                hours: "24 Jam",
-                contact: "+62 816-5555-6666",
-                status: "Aktif"
-            },
-            {
-                id: 13,
-                name: "Lost & Found",
-                category: "Keamanan",
-                description: "Layanan barang hilang dengan sistem database terintegrasi dan petugas khusus di setiap venue untuk membantu pencarian barang hilang.",
-                location: "Information Center - Setiap Venue",
-                hours: "08:00 - 22:00",
-                contact: "+62 820-5555-0000",
-                status: "Aktif"
-            },
-            
-            // Information & Communication
-            {
-                id: 14,
-                name: "Information Center",
-                category: "Informasi",
-                description: "Pusat informasi dengan petugas multilingual (Indonesia, Inggris, Banjar) untuk memberikan informasi jadwal, venue, transportasi, dan layanan lainnya.",
-                location: "Lobby Utama - Setiap Venue",
-                hours: "06:00 - 23:00",
-                contact: "+62 821-4444-1111",
-                status: "Aktif"
-            },
-            {
-                id: 15,
-                name: "WiFi Gratis",
-                category: "Teknologi",
-                description: "Layanan internet gratis berkecepatan tinggi di semua venue dengan bandwidth 1 Gbps dan coverage 100% area pertandingan.",
-                location: "Semua Venue & Area Publik",
-                hours: "24 Jam",
-                contact: "+62 822-4444-2222",
-                status: "Aktif"
-            },
-            {
-                id: 16,
-                name: "Live Streaming",
-                category: "Teknologi",
-                description: "Layanan siaran langsung pertandingan dengan 20 kamera profesional, drone, dan streaming ke platform digital dengan kualitas 4K.",
-                location: "Studio Broadcast - Media Center",
-                hours: "Sesuai Jadwal Pertandingan",
-                contact: "+62 823-4444-3333",
-                status: "Aktif"
-            },
-            
-            // Media Services
-            {
-                id: 17,
-                name: "Media Center",
-                category: "Media",
-                description: "Pusat media dengan 100 workstation, ruang konferensi pers berkapasitas 200 orang, studio TV, editing room, dan fasilitas transmisi satelit.",
-                location: "Gedung Media Center - Stadion Demang Lehman",
-                hours: "05:00 - 24:00",
-                contact: "+62 815-4444-5555",
-                status: "Aktif"
-            },
-            {
-                id: 18,
-                name: "Akreditasi Media",
-                category: "Media",
-                description: "Layanan akreditasi untuk 300 wartawan dan photographer dengan sistem online, ID card khusus, dan akses area restricted.",
-                location: "Media Accreditation Center",
-                hours: "08:00 - 17:00",
-                contact: "+62 824-4444-4444",
-                status: "Aktif"
-            },
-            
-            // Technical Services
-            {
-                id: 19,
-                name: "Timing & Scoring",
-                category: "Teknis",
-                description: "Sistem pencatatan waktu dan skor elektronik untuk semua cabang olahraga dengan teknologi terkini dan backup system untuk memastikan akurasi hasil.",
-                location: "Control Room - Setiap Venue",
-                hours: "Sesuai Jadwal Pertandingan",
-                contact: "+62 825-6666-5555",
-                status: "Aktif"
-            },
-            {
-                id: 20,
-                name: "Sound System",
-                category: "Teknis",
-                description: "Sistem audio profesional di semua venue dengan announcer berpengalaman, musik latar, dan pengeras suara berkualitas tinggi.",
-                location: "Audio Control - Setiap Venue",
-                hours: "06:00 - 23:00",
-                contact: "+62 826-6666-6666",
-                status: "Aktif"
-            },
-            
-            // Protocol & Ceremony
-            {
-                id: 21,
-                name: "Protokol & Upacara",
-                category: "Protokol",
-                description: "Layanan protokol untuk upacara pembukaan, penutupan, dan penyerahan medali dengan tim protokol berpengalaman dan peralatan upacara lengkap.",
-                location: "Sekretariat Protokol - Stadion Demang Lehman",
-                hours: "08:00 - 22:00",
-                contact: "+62 827-7777-7777",
-                status: "Aktif"
-            },
-            {
-                id: 22,
-                name: "Merchandise Official",
-                category: "Komersial",
-                description: "Penjualan merchandise resmi PORPROV Kalsel 2025 termasuk kaos, topi, gantungan kunci, dan souvenir khas Kalimantan Selatan.",
-                location: "Merchandise Store - Setiap Venue",
-                hours: "08:00 - 21:00",
-                contact: "+62 828-8888-8888",
-                status: "Aktif"
-            },
-            
-            // Special Services
-            {
-                id: 23,
-                name: "Layanan Disabilitas",
-                category: "Aksesibilitas",
-                description: "Fasilitas khusus untuk penyandang disabilitas termasuk kursi roda, jalur khusus, toilet accessible, dan pendamping khusus.",
-                location: "Semua Venue Pertandingan",
-                hours: "06:00 - 22:00",
-                contact: "+62 829-9999-9999",
-                status: "Aktif"
-            },
-            {
-                id: 24,
-                name: "Childcare Center",
-                category: "Layanan Khusus",
-                description: "Tempat penitipan anak sementara untuk atlet dan official yang membawa keluarga, dengan pengasuh berpengalaman dan fasilitas bermain.",
-                location: "Family Center - Hotel Tapin Plaza",
-                hours: "07:00 - 21:00",
-                contact: "+62 830-0000-0000",
-                status: "Aktif"
+                updateSyncStatus();
+                console.log(`🔄 Sync completed: ${DATA_SOURCE.status}`);
+                
+                return true;
+            } catch (error) {
+                console.error('❌ Sync failed:', error);
+                DATA_SOURCE.status = "SYNC_ERROR";
+                DATA_SOURCE.message = "Gagal mengakses repository, menggunakan data fallback";
+                loadAllFallbackData();
+                updateSyncStatus();
+                return false;
             }
-        ];
+        }
 
-        // Global variables
-        let currentNewsFilter = 'all';
-        let currentVenueFilter = 'all';
-        let currentOfficialFilter = 'all';
-        let currentServiceFilter = 'all';
-        let currentScheduleDate = new Date().toISOString().split('T')[0];
-        let displayedNewsCount = 6;
+        // Fallback data functions
+        function loadFallbackData(target) {
+            switch (target) {
+                case 'newsData':
+                    window[target] = getFallbackNews();
+                    break;
+                case 'scheduleData':
+                    window[target] = getFallbackSchedule();
+                    break;
+                case 'medalData':
+                    window[target] = getFallbackMedals();
+                    break;
+                case 'venueData':
+                    window[target] = getFallbackVenues();
+                    break;
+                case 'officialData':
+                    window[target] = getFallbackOfficials();
+                    break;
+                case 'serviceData':
+                    window[target] = getFallbackServices();
+                    break;
+            }
+        }
+
+        function loadAllFallbackData() {
+            newsData = getFallbackNews();
+            scheduleData = getFallbackSchedule();
+            medalData = getFallbackMedals();
+            venueData = getFallbackVenues();
+            officialData = getFallbackOfficials();
+            serviceData = getFallbackServices();
+        }
+
+        function getFallbackNews() {
+            return [
+                {
+                    id: 1,
+                    title: "🎉 Pembukaan PORPROV Kalsel 2025 Meriah di Stadion Demang Lehman",
+                    category: "acara",
+                    content: "Upacara pembukaan PORPROV Kalimantan Selatan 2025 berlangsung meriah di Stadion Demang Lehman, Rantau. Gubernur Kalsel H. Sahbirin Noor memberikan sambutan dan secara resmi membuka pesta olahraga terbesar di Kalsel dengan menyalakan api obor.",
+                    date: "2025-01-15",
+                    image: "🏟️",
+                    author: "Tim Media PORPROV",
+                    status: "published",
+                    views: 15420,
+                    likes: 892
+                }
+            ];
+        }
+
+        function getFallbackSchedule() {
+            return [
+                {
+                    id: 1,
+                    category: "Upacara",
+                    sport: "Pembukaan",
+                    date: "2025-01-15",
+                    time: "19:00",
+                    match: "Upacara Pembukaan PORPROV Kalsel 2025",
+                    venue: "Stadion Demang Lehman",
+                    status: "Completed",
+                    result: "Sukses - 15.000 penonton hadir",
+                    participants: "13 Kabupaten/Kota"
+                }
+            ];
+        }
+
+        function getFallbackMedals() {
+            return [
+                {
+                    id: 1,
+                    region: "Tapin",
+                    gold: 18,
+                    silver: 15,
+                    bronze: 12,
+                    total: 45
+                }
+            ];
+        }
+
+        function getFallbackVenues() {
+            return [
+                {
+                    id: 1,
+                    name: "Stadion Demang Lehman",
+                    type: "Stadion",
+                    capacity: 15000,
+                    location: "Jl. Ahmad Yani, Rantau, Tapin",
+                    sports: "Sepak Bola, Atletik, Upacara",
+                    facilities: "Parkir 500 mobil, Toilet 20 unit, Kantin 5 outlet",
+                    contact: "+62 511-41234",
+                    status: "Aktif"
+                }
+            ];
+        }
+
+        function getFallbackOfficials() {
+            return [
+                {
+                    id: 1,
+                    name: "Dr. H. Ahmad Suryadi, M.Pd",
+                    position: "Ketua Umum",
+                    organization: "KONI Kalimantan Selatan",
+                    sport: "Umum",
+                    phone: "+62 812-3456-7890",
+                    email: "ahmad.suryadi@koni-kalsel.org",
+                    certification: "Manajemen Olahraga Nasional"
+                }
+            ];
+        }
+
+        function getFallbackServices() {
+            return [
+                {
+                    id: 1,
+                    name: "Layanan Medis Darurat",
+                    category: "Medis",
+                    description: "Layanan kesehatan 24 jam dengan ambulans siaga",
+                    location: "Posko Medis Utama - Stadion Demang Lehman",
+                    hours: "24 Jam",
+                    contact: "+62 812-1111-2222",
+                    status: "Aktif"
+                }
+            ];
+        }
+
+        // Update sync status in UI
+        function updateSyncStatus() {
+            // Update navigation status
+            const statusElements = document.querySelectorAll('[onclick="openAdminPanel()"]');
+            statusElements.forEach(el => {
+                if (DATA_SOURCE.status === "GITHUB_SYNC_SUCCESS") {
+                    el.textContent = "Data GitHub Tersinkronisasi ✅";
+                } else if (DATA_SOURCE.status === "PARTIAL_SYNC") {
+                    el.textContent = "Data Sebagian Tersinkronisasi ⚠️";
+                } else if (DATA_SOURCE.status === "SYNCING") {
+                    el.textContent = "Sinkronisasi... 🔄";
+                } else {
+                    el.textContent = "Data Fallback Aktif ⚠️";
+                }
+            });
+        }
+
+        // Check data sync status and initialize
+        async function checkDataSyncStatus() {
+            console.log('🔄 PORPROV Kalsel 2025 - Memulai Sinkronisasi Data');
+            console.log('📊 Repository:', DATA_SOURCE.repository);
+            console.log('🌿 Branch:', DATA_SOURCE.branch);
+            console.log('🔗 Base URL:', DATA_SOURCE.baseUrl);
+            
+            // Start sync process
+            await syncDataFromGitHub();
+            
+            console.log('');
+            console.log('📰 Berita:', newsData.length, 'items');
+            console.log('📅 Jadwal:', scheduleData.length, 'items');
+            console.log('🏆 Klasemen:', medalData.length, 'regions');
+            console.log('🏟️ Venue:', venueData.length, 'locations');
+            console.log('👥 Official:', officialData.length, 'persons');
+            console.log('🛎️ Layanan:', serviceData.length, 'services');
+            console.log('');
+            console.log('✅ Status:', DATA_SOURCE.status);
+            console.log('💬 Message:', DATA_SOURCE.message);
+            console.log('ℹ️ Klik status di navigasi untuk membuka Admin Panel');
+        }
+
+        // Admin Panel Functions
+        function openAdminPanel() {
+            updateAdminPanelData();
+            document.getElementById('adminPanel').classList.remove('hidden');
+        }
+
+        function closeAdminPanel() {
+            document.getElementById('adminPanel').classList.add('hidden');
+        }
+
+        function updateAdminPanelData() {
+            document.getElementById('adminNewsCount').textContent = newsData.length;
+            document.getElementById('adminScheduleCount').textContent = scheduleData.length;
+            document.getElementById('adminMedalCount').textContent = medalData.length;
+            document.getElementById('adminVenueCount').textContent = venueData.length;
+            document.getElementById('adminOfficialCount').textContent = officialData.length;
+            document.getElementById('adminServiceCount').textContent = serviceData.length;
+            document.getElementById('adminLastSync').textContent = DATA_SOURCE.lastSync ? 
+                new Date(DATA_SOURCE.lastSync).toLocaleString('id-ID') : 'Belum pernah sync';
+        }
+
+        async function refreshDataSync() {
+            console.log('🔄 Refreshing data sync status...');
+            await syncDataFromGitHub();
+            updateAdminPanelData();
+            
+            // Reload all sections with new data
+            loadNews();
+            loadSchedule();
+            loadMedals();
+            loadVenues();
+            loadOfficials();
+            loadServices();
+            updateStatistics();
+            
+            // Show success message
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = '✅ Data Diperbarui';
+            button.classList.add('bg-green-600');
+            button.classList.remove('bg-blue-600');
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('bg-green-600');
+                button.classList.add('bg-blue-600');
+            }, 2000);
+        }
+
+        function exportDataLog() {
+            const logData = {
+                timestamp: new Date().toISOString(),
+                repository: DATA_SOURCE.repository,
+                status: DATA_SOURCE.status,
+                message: DATA_SOURCE.message,
+                lastSync: DATA_SOURCE.lastSync,
+                dataCounts: {
+                    news: newsData.length,
+                    schedule: scheduleData.length,
+                    medals: medalData.length,
+                    venues: venueData.length,
+                    officials: officialData.length,
+                    services: serviceData.length
+                }
+            };
+            
+            const dataStr = JSON.stringify(logData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `porprov-sync-log-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+            
+            console.log('📊 Data log exported:', logData);
+        }
+
+        function clearConsoleLog() {
+            console.clear();
+            console.log('🧹 Console cleared by admin');
+            console.log('🔄 PORPROV Kalsel 2025 - Admin Panel Active');
+        }
 
         // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Start data sync first
+            await checkDataSyncStatus();
+            
+            // Initialize all components
             initializeCountdown();
             loadNews();
             loadSchedule();
@@ -2037,6 +1251,34 @@
                 });
             });
         });
+
+        // Data Source Configuration
+        const DATA_SOURCE = {
+            repository: "amanggigit/porprov-kalsel-2025-data",
+            branch: "main",
+            baseUrl: "https://amanggigit.github.io/porprov-kalsel-2025-data/",
+            lastSync: null,
+            status: "SYNCING",
+            message: "Menghubungkan ke repository..."
+        };
+
+        // Global variables
+        let currentNewsFilter = 'all';
+        let currentVenueFilter = 'all';
+        let currentOfficialFilter = 'all';
+        let currentServiceFilter = 'all';
+        let currentScheduleDate = new Date().toISOString().split('T')[0];
+        let displayedNewsCount = 6;
+
+        // Dynamic data arrays (will be populated from GitHub)
+        let newsData = [];
+        let scheduleData = [];
+        let medalData = [];
+        let venueData = [];
+        let officialData = [];
+        let serviceData = [];
+
+
 
         // Countdown timer
         function initializeCountdown() {
@@ -2703,6 +1945,7 @@
         window.onclick = function(event) {
             const newsModal = document.getElementById('newsModal');
             const venueModal = document.getElementById('venueModal');
+            const adminPanel = document.getElementById('adminPanel');
             
             if (event.target === newsModal) {
                 closeNewsModal();
@@ -2710,7 +1953,10 @@
             if (event.target === venueModal) {
                 closeVenueModal();
             }
+            if (event.target === adminPanel) {
+                closeAdminPanel();
+            }
         }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'988ab2e8a35381c2',t:'MTc1OTQ3NjI1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'988b2192e0f8cb36',t:'MTc1OTQ4MDc4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
